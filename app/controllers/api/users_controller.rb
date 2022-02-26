@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+    skip_before_action :verify_authenticity_token
     before_action :require_logged_in!, only:[:show]
 
     def show
@@ -14,10 +15,11 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             login!(@user)
-            redirect_to user_url(@user)
+            redirect_to api_user_url(@user)
         else
             flash.now[:errors] = @user.errors.full_messages
-            render "static_pages/root"
+            render json: @user.errors.full_messages, status: 400
+            # render "static_pages/root"
             # render "api/restaurants/index"
         end
     end
