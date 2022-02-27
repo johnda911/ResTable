@@ -26,12 +26,23 @@ class Signup extends React.Component {
     //   .then(() => this.props.history.push("/login"));
   }
 
-  //   renderErrors() {}
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     return (
       <div className="session-form">
         <h2>Welcome to ResTable!</h2>
+        <br />
+        Please {this.props.formType} or {this.props.navLink}
+        {this.renderErrors()}
         <form className="session-form-box" onSubmit={this.handleSubmit}>
           <label>
             Username:

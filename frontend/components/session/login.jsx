@@ -22,11 +22,22 @@ class Login extends React.Component {
     // .then(() => this.props.history.push("/restaurants"));
   }
 
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     // console.log(this.props);
     return (
       <div className="session-form">
         <h2>Welcome back to ResTable, please log In!</h2>
+        {this.renderErrors()}
         <form className="session-form-box">
           <label>
             Email:
