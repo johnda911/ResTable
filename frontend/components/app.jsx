@@ -1,23 +1,37 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import {
+  Route,
+  Redirect,
+  BrowserRouter,
+  Switch,
+  Link,
+  HashRouter,
+} from "react-router-dom";
 
-// import ReportIndexContainer from './reports/report_index_container';
-// import CreateReportFormContainer from './reports/create_report_form_container';
-// import EditReportFormContainer from './reports/edit_report_form_container';
-// import ReportShowContainer from './reports/report_show_container';
+import Home from "./home/home";
+// import WelcomeBar from './nav_bar/welcome_bar_container';
+// import NavBarContainer from './nav_bar/nav_bar_container';
+import SignupContainer from "./session/signup_container";
+import LoginContainer from "./session/login_container";
+// import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
 const App = () => (
   <div className="app">
+    <header>
+      {/* <Link to="/" className="header-link">
+        <h1>ResTable</h1>
+      </Link> */}
+    </header>
     <h1>App React - ResTable Homepage</h1>
-    {/* <Switch>
-      <Route exact path="/" component={ReportIndexContainer} />
-      <Route path="/reports/new" component={CreateReportFormContainer} />
-      <Route exact path="/reports/:reportId" component={ReportShowContainer} />
-      <Route
-        path="/reports/:reportId/edit"
-        component={EditReportFormContainer}
-      />
-    </Switch> */}
+
+    <Switch>
+      {/* to be updated for "/" once complete Home component */}
+      <Route exact path="/" component={Home} />
+      <Route path="/signup" component={SignupContainer} />
+      <Route path="/login" component={LoginContainer} />
+      {/* <ProtectedRoute path="/restaurants" component={RestaurantIndexContainer} /> */}
+      {/* <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} /> */}
+    </Switch>
   </div>
 );
 

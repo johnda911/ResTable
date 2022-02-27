@@ -4,8 +4,9 @@ import SessionReducer from './session';
 import { combineReducers } from 'redux';
 
 const RootReducer = combineReducers({
+    // entities: entitiesReducer,
     session: SessionReducer
-    // reports: ReportsReducer
+
 });
 
 export default RootReducer;

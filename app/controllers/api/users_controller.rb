@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
     skip_before_action :verify_authenticity_token
+    # to be commented in below once complete the login frontend routes
     before_action :require_logged_in!, only:[:show]
 
     def show

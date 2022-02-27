@@ -1,11 +1,9 @@
 import React from "react";
 
-class Signup extends React.Component {
+class Login extends React.Component {
   constructor(props) {
-    // console.log("======= signup");
     super(props);
     this.state = {
-      username: "",
       email: "",
       password: "",
     };
@@ -19,28 +17,17 @@ class Signup extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // the pushed path is to be updated once the login routes have been setup.
-    this.props
-      .createNewUser(this.state)
-      .then(() => this.props.history.push("/"));
-    //   .then(() => this.props.history.push("/login"));
+    this.props.login(this.state).then(() => this.props.history.push("/"));
+    // to be commented in once complete the restaurants routes
+    // .then(() => this.props.history.push("/restaurants"));
   }
 
-  //   renderErrors() {}
-
   render() {
+    // console.log(this.props);
     return (
       <div className="session-form">
-        <h2>Welcome to ResTable!</h2>
-        <form className="session-form-box" onSubmit={this.handleSubmit}>
-          <label>
-            Username:
-            <input
-              type="text"
-              value={this.state.username}
-              onChange={this.handleInput("username")}
-            />
-          </label>
+        <h2>Welcome back to ResTable, please log In!</h2>
+        <form className="session-form-box">
           <label>
             Email:
             <input
@@ -49,6 +36,7 @@ class Signup extends React.Component {
               onChange={this.handleInput("email")}
             />
           </label>
+
           <label>
             Password:
             <input
@@ -56,8 +44,8 @@ class Signup extends React.Component {
               value={this.state.password}
               onChange={this.handleInput("password")}
             />
-            <button className="signup-button" type="submit">
-              Sign up
+            <button className="signin-button" onClick={this.handleSubmit}>
+              Sign in
             </button>
           </label>
         </form>
@@ -66,4 +54,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default Login;
