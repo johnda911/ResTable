@@ -19,20 +19,22 @@ class Signup extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // the pushed path is to be updated once the login routes have been setup.
-    this.props
-      .createNewUser(this.state)
-      .then(() => this.props.history.push("/"));
-    //   .then(() => this.props.history.push("/login"));
+    const formUser = Object.assign({}, this.state);
+    this.props.processForm(formUser).then(this.props.closeModal);
+    // this.props
+    //   .createNewUser(this.state)
+    //   .then(() => this.props.history.push("/"));
   }
 
   renderErrors() {
-    const validErrors = this.props.errors.filter((err) => err.length > 0);
+    const errors = this.props.errors[0];
+    // console.log(errors);
+
     return (
-      <div>
-        {validErrors > 0 && (
+      <div className="session-errors">
+        {errors.length > 0 && (
           <ul>
-            {this.props.errors.map((error, i) => (
+            {errors.map((error, i) => (
               <li key={`error-${i}`}>{error}</li>
             ))}
           </ul>
@@ -48,35 +50,40 @@ class Signup extends React.Component {
           {/* <h2>Welcome to ResTable!</h2> */}
           <div className="session-reminder">
             Please {this.props.formType} or {this.props.navLink}
-            {this.renderErrors()}
           </div>
+          {this.renderErrors()}
           <br />
           <label>
-            Username:
+            Your fullname:
+            <br />
             <input
               type="text"
               value={this.state.username}
               onChange={this.handleInput("username")}
+              className="login-input"
             />
           </label>
           <label>
-            Email:
+            Your email:
+            <br />
             <input
               type="text"
               value={this.state.email}
               onChange={this.handleInput("email")}
+              className="login-input"
             />
           </label>
           <label>
-            Password:
+            Your password:
+            <br />
             <input
               type="password"
               value={this.state.password}
               onChange={this.handleInput("password")}
+              className="login-input"
             />
-            <button className="signup-button" type="submit">
-              Sign up
-            </button>
+            <br />
+            <button onClick={this.handleSubmit}>Sign up</button>
           </label>
         </form>
       </div>

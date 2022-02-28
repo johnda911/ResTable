@@ -3,23 +3,33 @@ import React from "react";
 import { createNewUser } from "../../actions/session";
 import Signup from "./signup";
 import { Link } from "react-router-dom";
+import { openModal, closeModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state) => {
   return {
     errors: Object.values(state.errors),
     formType: "signup",
-    navLink: (
-      <Link to="/login" className="link">
-        log in
-      </Link>
-    ),
+    // navLink: (
+    //   <Link to="/login" className="link">
+    //     log in
+    //   </Link>
+    // ),
   };
 };
 
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     createNewUser: (formUser) => dispatch(createNewUser(formUser)),
+//   };
+// };
 const mapDispatchToProps = (dispatch) => {
   return {
-    createNewUser: (formUser) => dispatch(createNewUser(formUser)),
+    processForm: (formUser) => dispatch(createNewUser(formUser)),
+    otherForm: (
+      <button onClick={() => dispatch(openModal("login"))}>Log in</button>
+    ),
+    closeModal: () => dispatch(closeModal()),
   };
 };
-// to be updated once pass errors to props
+
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

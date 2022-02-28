@@ -8,6 +8,7 @@ import {
   HashRouter,
 } from "react-router-dom";
 
+import Modal from "./modal/modal";
 import Home from "./home/home";
 // import WelcomeBar from './nav_bar/welcome_bar_container';
 import NavBarContainer from "./nav_bar/nav_bar_container";
@@ -17,17 +18,19 @@ import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
 const App = () => (
   <div className="app">
+    <Modal />
     <header>
       {/* <Link to="/" className="header-link">
         <h1>ResTable</h1>
       </Link> */}
+      <NavBarContainer />
     </header>
     {/* <h1>ResTable Logo</h1> */}
-    <NavBarContainer />
+    {/* <NavBarContainer /> */}
     <Switch>
       <Route exact path="/" component={Home} />
-      <AuthRoute path="/signup" component={SignupContainer} />
-      <AuthRoute path="/login" component={LoginContainer} />
+      {/* <AuthRoute path="/signup" component={SignupContainer} /> */}
+      {/* <AuthRoute path="/login" component={LoginContainer} /> */}
       {/* <ProtectedRoute path="/restaurants" component={RestaurantIndexContainer} /> */}
       {/* <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} /> */}
     </Switch>

@@ -17,7 +17,8 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state).then(() => this.props.history.push("/"));
+    const formUser = Object.assign({}, this.state);
+    this.props.processForm(formUser).then(this.props.closeModal);
     // to be commented in once complete the restaurants routes
     // .then(() => this.props.history.push("/restaurants"));
   }
@@ -25,10 +26,10 @@ class Login extends React.Component {
   renderErrors() {
     const validErrors = this.props.errors.filter((err) => err.length > 0);
     return (
-      <div>
-        {validErrors > 0 && (
+      <div className="session-errors">
+        {validErrors.length > 0 && (
           <ul>
-            {this.props.errors.map((error, i) => (
+            {validErrors.map((error, i) => (
               <li key={`error-${i}`}>{error}</li>
             ))}
           </ul>
@@ -43,29 +44,33 @@ class Login extends React.Component {
       <div className="session-form">
         <form className="session-form-box">
           <div className="session-reminder">
-            Welcome back to ResTable, please log in or {this.props.navLink}
+            Welcome back to ResTable!
+            <br />
+            Please log in or {this.props.navLink}
             {this.renderErrors()}
           </div>
           <br />
           <label>
-            Email:
+            Your email:
+            <br />
             <input
               type="text"
               value={this.state.email}
               onChange={this.handleInput("email")}
+              className="login-input"
             />
           </label>
-
           <label>
-            Password:
+            Your password:
+            <br />
             <input
               type="password"
               value={this.state.password}
               onChange={this.handleInput("password")}
+              className="login-input"
             />
-            <button className="signin-button" onClick={this.handleSubmit}>
-              Sign in
-            </button>
+            <br />
+            <button onClick={this.handleSubmit}>Sign in</button>
           </label>
         </form>
       </div>
