@@ -22,11 +22,9 @@ const App = () => (
         <h1>ResTable</h1>
       </Link> */}
     </header>
-    <h1>App React - ResTable Homepage</h1>
-
+    {/* <h1>ResTable Logo</h1> */}
+    <NavBarContainer />
     <Switch>
-      {/* to be updated for "/" once complete Home component */}
-      <Route exact path="/" component={NavBarContainer} />
       <Route exact path="/" component={Home} />
       <AuthRoute path="/signup" component={SignupContainer} />
       <AuthRoute path="/login" component={LoginContainer} />

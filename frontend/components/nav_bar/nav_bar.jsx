@@ -3,24 +3,54 @@ import { Link } from "react-router-dom";
 
 export default ({ currentUser, logout }) => {
   const display = currentUser ? (
-    <div>
-      <h3>Hello, {currentUser.username}!</h3>
-      <button onClick={logout}>Sign out</button>
-    </div>
+    <>
+      <div className="profile-dropdown">
+        <h3>Hello, {currentUser.username}!</h3>
+        <button onClick={logout}>Sign out</button>
+      </div>
+      <div className="icon-group">
+        <button className="icon-button">
+          <i className="fa-regular fa-user fa-xl"></i>
+        </button>
+        <button className="icon-button">
+          <i className="fa-regular fa-calendar fa-xl"></i>
+        </button>
+        <button id="search-button">
+          <i className="fa-solid fa-magnifying-glass fa-xl"></i>
+        </button>
+      </div>
+    </>
   ) : (
-    <div>
-      <Link className="signup-button" to="/signup">
+    <div className="button-group">
+      <Link className="button signup-button" to="/signup">
         Sign up
       </Link>
-      <Link className="signin-button" to="/login">
+      <Link className="button signin-button" to="/login">
         Sign in
       </Link>
     </div>
   );
+
   return (
-    <header className="nav-bar">
-      <h1 className="logo">ResTable</h1>
-      <div>{display}</div>
+    <header className="navbar">
+      <div className="grey-bar">
+        <a
+          href="https://www.linkedin.com/in/yuchen-katie-hang-443b27a4/"
+          target="_blank"
+        >
+          <i className="fa-brands fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://github.com/johnda911" target="_blank">
+          <i className="fa-brands fa-github fa-lg"></i>
+        </a>
+      </div>
+      <nav className="header-nav">
+        <div className="header-nav-left">
+          <img id="restable-logo" src="images/restable_logo.png" />
+          <h2>ResTable</h2>
+        </div>
+        <div className="header-nav-right">{display}</div>
+      </nav>
     </header>
   );
 };

@@ -23,12 +23,17 @@ class Login extends React.Component {
   }
 
   renderErrors() {
+    const validErrors = this.props.errors.filter((err) => err.length > 0);
     return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
-      </ul>
+      <div>
+        {validErrors > 0 && (
+          <ul>
+            {this.props.errors.map((error, i) => (
+              <li key={`error-${i}`}>{error}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     );
   }
 
@@ -36,9 +41,12 @@ class Login extends React.Component {
     // console.log(this.props);
     return (
       <div className="session-form">
-        <h2>Welcome back to ResTable, please log In!</h2>
-        {this.renderErrors()}
         <form className="session-form-box">
+          <div className="session-reminder">
+            Welcome back to ResTable, please log in or {this.props.navLink}
+            {this.renderErrors()}
+          </div>
+          <br />
           <label>
             Email:
             <input

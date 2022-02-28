@@ -27,23 +27,30 @@ class Signup extends React.Component {
   }
 
   renderErrors() {
+    const validErrors = this.props.errors.filter((err) => err.length > 0);
     return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
-      </ul>
+      <div>
+        {validErrors > 0 && (
+          <ul>
+            {this.props.errors.map((error, i) => (
+              <li key={`error-${i}`}>{error}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     );
   }
 
   render() {
     return (
       <div className="session-form">
-        <h2>Welcome to ResTable!</h2>
-        <br />
-        Please {this.props.formType} or {this.props.navLink}
-        {this.renderErrors()}
         <form className="session-form-box" onSubmit={this.handleSubmit}>
+          {/* <h2>Welcome to ResTable!</h2> */}
+          <div className="session-reminder">
+            Please {this.props.formType} or {this.props.navLink}
+            {this.renderErrors()}
+          </div>
+          <br />
           <label>
             Username:
             <input
