@@ -30,6 +30,7 @@ class Signup extends React.Component {
   openLogInModal(e) {
     e.preventDefault();
     this.props.closeModal();
+    // this.props.clearErrors();
     this.props.openModal("login");
   }
 
