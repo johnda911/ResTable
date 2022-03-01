@@ -13,7 +13,7 @@
   // border: 0.0625rem solid #247f9e;
   border-radius: 0.1875rem;
   text-decoration: none;
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 }
@@ -22,7 +22,7 @@
   background-color: #247f9e;
   margin-right: 10px;
   border: 0.0625rem solid #247f9e;
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 }
@@ -30,7 +30,7 @@
   color: #2d333f;
   background-color: f7f7f7;
   border: 0.0625rem solid #247f9e;
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 }
@@ -117,7 +117,7 @@ input {
         flex-direction: row;
         justify-content: space-between;
         float: right;
-        :hover {
+        &:hover {
           cursor: pointer;
         }
         .icon-button {
@@ -149,13 +149,39 @@ input {
     justify-content: center;
     flex-direction: column;
     width: 40vh;
-    height: 30vh;
+    height: 40vh;
     justify-content: flex-start;
     align-items: center;
-    //for the box border wrapping the session form inputs
-    // outline: 1px solid black;
-    // padding: 20px;
-    // border-radius: 0.1875rem;
+    padding: 10px;
+    .login-input {
+      // display: block;
+      margin-left: 0px;
+      border: 0.0625rem solid #247f9e;
+      margin-bottom: 8px;
+    }
+    .login-button {
+      display: block;
+      color: #fff;
+      width: 100%;
+      height: 30px;
+      padding: 0px;
+      background-color: #247f9e;
+      margin-right: 10px;
+      border: 0.0625rem solid #247f9e;
+      &:hover {
+        cursor: pointer;
+        background-color: #175b72;
+      }
+    }
+    .login-link-contrainer {
+      a {
+        color: #247f9e;
+        font-weight: bold;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
     .session-errors {
       font-size: 16px;
       font-weight: 400;
@@ -166,29 +192,15 @@ input {
       font-size: 18px;
       font-weight: 500;
       text-align: center;
-      .link {
-        display: block;
-      }
-      .login-input {
-        margin-left: 20px;
-      }
+      color: #247f9e;
+    }
+    label {
+      font-size: 12px;
+      font-weight: 400;
+      color: gray;
+      text-align: left;
     }
   }
-}
-
-.login-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.login-input {
-  margin-left: 20px;
-}
-
-.login-form-box {
-  outline: 1px solid black;
-  padding: 20px;
 }
 
 .modal-background {

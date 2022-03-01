@@ -9,6 +9,7 @@ class Login extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.openSignUpModal = this.openSignUpModal.bind(this);
   }
 
   handleInput(field) {
@@ -21,6 +22,12 @@ class Login extends React.Component {
     this.props.processForm(formUser).then(this.props.closeModal);
     // to be commented in once complete the restaurants routes
     // .then(() => this.props.history.push("/restaurants"));
+  }
+
+  openSignUpModal(e) {
+    e.preventDefault();
+    this.props.closeModal();
+    this.props.openModal("signup");
   }
 
   renderErrors() {
@@ -46,7 +53,7 @@ class Login extends React.Component {
           <div className="session-reminder">
             Welcome back to ResTable!
             <br />
-            Please log in or {this.props.navLink}
+            Log In
             {this.renderErrors()}
           </div>
           <br />
@@ -70,7 +77,13 @@ class Login extends React.Component {
               className="login-input"
             />
             <br />
-            <button onClick={this.handleSubmit}>Sign in</button>
+            <button className="login-button" onClick={this.handleSubmit}>
+              Sign in
+            </button>
+            <p>New to ResTable?</p>
+            <div className="login-link-contrainer">
+              <a onClick={this.openSignUpModal}>Sign up</a>
+            </div>
           </label>
         </form>
       </div>
