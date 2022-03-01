@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import React from "react";
-import { createNewUser } from "../../actions/session";
+import { createNewUser, CLEAR_SESSION_ERRORS } from "../../actions/session";
 import Signup from "./signup";
 import { Link } from "react-router-dom";
 import { openModal, closeModal } from "../../actions/modal_actions";
+// import {CLEAR_SESSION_ERRORS} from '../../actions/session';
 
 const mapStateToProps = (state) => {
   return {
@@ -28,7 +29,13 @@ const mapDispatchToProps = (dispatch) => {
     otherForm: (
       <button onClick={() => dispatch(openModal("login"))}>Log in</button>
     ),
-    closeModal: () => dispatch(closeModal()),
+    closeModal: () => {
+      dispatch({
+        type: CLEAR_SESSION_ERRORS,
+      });
+      dispatch(closeModal());
+    },
+    openModal: (modal) => dispatch(openModal(modal)),
   };
 };
 

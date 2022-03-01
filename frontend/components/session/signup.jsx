@@ -11,6 +11,7 @@ class Signup extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.openLogInModal = this.openLogInModal.bind(this);
   }
 
   handleInput(field) {
@@ -24,6 +25,13 @@ class Signup extends React.Component {
     // this.props
     //   .createNewUser(this.state)
     //   .then(() => this.props.history.push("/"));
+  }
+
+  openLogInModal(e) {
+    e.preventDefault();
+    this.props.closeModal();
+    // this.props.clearErrors();
+    this.props.openModal("login");
   }
 
   renderErrors() {
@@ -49,7 +57,9 @@ class Signup extends React.Component {
         <form className="session-form-box" onSubmit={this.handleSubmit}>
           {/* <h2>Welcome to ResTable!</h2> */}
           <div className="session-reminder">
-            Please {this.props.formType} or {this.props.navLink}
+            Welcome to ResTable!
+            <br />
+            Sign Up
           </div>
           {this.renderErrors()}
           <br />
@@ -83,7 +93,13 @@ class Signup extends React.Component {
               className="login-input"
             />
             <br />
-            <button onClick={this.handleSubmit}>Sign up</button>
+            <button className="login-button" onClick={this.handleSubmit}>
+              Sign up
+            </button>
+            <p>Already have an account?</p>
+            <div className="login-link-contrainer">
+              <a onClick={this.openLogInModal}>Log in</a>
+            </div>
           </label>
         </form>
       </div>

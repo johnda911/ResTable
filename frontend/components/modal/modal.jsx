@@ -1,5 +1,6 @@
 import React from "react";
 import { closeModal } from "../../actions/modal_actions";
+import { CLEAR_SESSION_ERRORS } from "../../actions/session";
 import { connect } from "react-redux";
 import Login from "../session/login_container";
 import Signup from "../session/signup_container";
@@ -36,7 +37,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    closeModal: () => dispatch(closeModal()),
+    closeModal: () => {
+      dispatch({
+        type: CLEAR_SESSION_ERRORS,
+      });
+      dispatch(closeModal());
+    },
   };
 };
 
