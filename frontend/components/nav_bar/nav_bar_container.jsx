@@ -18,12 +18,6 @@ const mapDispatchToProps = (dispatch) => ({
       })
     ),
   openModal: (modal) => dispatch(openModal(modal)),
-  closeModal: () => {
-    dispatch({
-      type: CLEAR_SESSION_ERRORS,
-    });
-    dispatch(closeModal());
-  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

@@ -1,32 +1,17 @@
 import React from "react";
-import {
-  Route,
-  Redirect,
-  BrowserRouter,
-  Switch,
-  Link,
-  HashRouter,
-} from "react-router-dom";
+import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 
 import Modal from "./modal/modal";
 import Home from "./home/home";
-// import WelcomeBar from './nav_bar/welcome_bar_container';
 import NavBarContainer from "./nav_bar/nav_bar_container";
-import SignupContainer from "./session/signup_container";
-import LoginContainer from "./session/login_container";
 import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
 const App = () => (
   <div className="app">
     <Modal />
     <header>
-      {/* <Link to="/" className="header-link">
-        <h1>ResTable</h1>
-      </Link> */}
       <NavBarContainer />
     </header>
-    {/* <h1>ResTable Logo</h1> */}
-    {/* <NavBarContainer /> */}
     <Switch>
       <Route exact path="/" component={Home} />
       {/* <AuthRoute path="/signup" component={SignupContainer} /> */}

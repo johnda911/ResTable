@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { closeModal } from "../../actions/modal_actions";
 
 export default ({ currentUser, logout, login, openModal }) => {
-  const handleDemoUser = () => login().then(() => closeModal());
+  const handleDemoUser = () => login();
   const display = currentUser ? (
     <>
       <div className="profile-dropdown">
