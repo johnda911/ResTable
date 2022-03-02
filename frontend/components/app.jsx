@@ -33,6 +33,7 @@ const App = () => (
       {/* <AuthRoute path="/login" component={LoginContainer} /> */}
       {/* <ProtectedRoute path="/restaurants" component={RestaurantIndexContainer} /> */}
       {/* <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} /> */}
+      <Redirect to="/" />
     </Switch>
   </div>
 );
