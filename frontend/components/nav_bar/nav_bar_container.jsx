@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import NavBar from "./nav_bar";
-import { logout } from "../../actions/session";
+import { login, logout, CLEAR_SESSION_ERRORS } from "../../actions/session";
 import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state) => ({
@@ -10,7 +10,20 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
+  login: () =>
+    dispatch(
+      login({
+        email: "demouser@gmail.com",
+        password: "123456",
+      })
+    ),
   openModal: (modal) => dispatch(openModal(modal)),
+  closeModal: () => {
+    dispatch({
+      type: CLEAR_SESSION_ERRORS,
+    });
+    dispatch(closeModal());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

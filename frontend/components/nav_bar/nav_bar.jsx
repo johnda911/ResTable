@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { closeModal } from "../../actions/modal_actions";
 
-export default ({ currentUser, logout, openModal }) => {
+export default ({ currentUser, logout, login, openModal }) => {
+  const handleDemoUser = () => login().then(() => closeModal());
   const display = currentUser ? (
     <>
       <div className="profile-dropdown">
@@ -22,12 +24,6 @@ export default ({ currentUser, logout, openModal }) => {
     </>
   ) : (
     <div className="button-group">
-      {/* <Link className="button signup-button" to="/signup">
-        Sign up
-      </Link> */}
-      {/* <Link className="button signin-button" to="/login">
-        Sign in
-      </Link> */}
       <button
         className="button signup-button"
         onClick={() => openModal("signup")}
@@ -39,6 +35,9 @@ export default ({ currentUser, logout, openModal }) => {
         onClick={() => openModal("login")}
       >
         Sign in
+      </button>
+      <button className="button signin-button" onClick={handleDemoUser}>
+        Demo User
       </button>
       <button id="search-button">
         <i className="fa-solid fa-magnifying-glass fa-xl"></i>

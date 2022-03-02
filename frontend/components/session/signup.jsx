@@ -64,7 +64,7 @@ class Signup extends React.Component {
           {this.renderErrors()}
           <br />
           <label>
-            Your fullname:
+            Name:
             <br />
             <input
               type="text"
@@ -74,7 +74,7 @@ class Signup extends React.Component {
             />
           </label>
           <label>
-            Your email:
+            Email:
             <br />
             <input
               type="text"
@@ -84,7 +84,7 @@ class Signup extends React.Component {
             />
           </label>
           <label>
-            Your password:
+            Password:
             <br />
             <input
               type="password"
@@ -94,7 +94,7 @@ class Signup extends React.Component {
             />
             <br />
             <button className="login-button" onClick={this.handleSubmit}>
-              Sign up
+              Create a New Account
             </button>
             <p>Already have an account?</p>
             <div className="login-link-contrainer">

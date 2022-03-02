@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only:[:show, :create]
     resource :session, only: [:create, :destroy]
-    # resources :restaurants, only:[:index, :show]
+    resources :restaurants, only:[:index, :show]
     # resources :favorites, only: [:create, :destroy]
     # post '/search', to: 'users#search'
   end

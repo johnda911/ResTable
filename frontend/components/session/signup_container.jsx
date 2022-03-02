@@ -10,19 +10,9 @@ const mapStateToProps = (state) => {
   return {
     errors: Object.values(state.errors),
     formType: "signup",
-    // navLink: (
-    //   <Link to="/login" className="link">
-    //     log in
-    //   </Link>
-    // ),
   };
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     createNewUser: (formUser) => dispatch(createNewUser(formUser)),
-//   };
-// };
 const mapDispatchToProps = (dispatch) => {
   return {
     processForm: (formUser) => dispatch(createNewUser(formUser)),

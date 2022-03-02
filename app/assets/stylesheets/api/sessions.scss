@@ -10,7 +10,6 @@
 
   width: 65px;
   height: 35px;
-  // border: 0.0625rem solid #247f9e;
   border-radius: 0.1875rem;
   text-decoration: none;
   &:hover {
@@ -132,7 +131,6 @@ input {
           border-top: none;
           border-right: none;
           border-left: 1px solid lightgrey;
-          // width: 100px;
         }
       }
     }
@@ -154,7 +152,6 @@ input {
     align-items: center;
     padding: 10px;
     .login-input {
-      // display: block;
       margin-left: 0px;
       border: 0.0625rem solid #247f9e;
       margin-bottom: 8px;
