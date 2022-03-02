@@ -81,7 +81,7 @@ class Login extends React.Component {
               Sign in
             </button>
             <p>New to ResTable?</p>
-            <div className="login-link-contrainer">
+            <div className="login-link-container">
               <a onClick={this.openSignUpModal}>Sign up</a>
             </div>
           </label>

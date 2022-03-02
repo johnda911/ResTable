@@ -28,6 +28,7 @@
 .signin-button {
   color: #2d333f;
   background-color: f7f7f7;
+  margin-right: 10px;
   border: 0.0625rem solid #247f9e;
   &:hover {
     cursor: pointer;
@@ -142,35 +143,39 @@ input {
   display: flex;
   justify-content: center;
   margin-top: 0px;
+  width: 100%;
   .session-form-box {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     flex-direction: column;
     width: 40vh;
-    height: 40vh;
+    height: 45vh;
     justify-content: flex-start;
-    align-items: center;
+    // align-items: center;
     padding: 10px;
     .login-input {
       margin-left: 0px;
       border: 0.0625rem solid #247f9e;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      width: 98%;
+      height: 25px;
     }
     .login-button {
       display: block;
       color: #fff;
       width: 100%;
-      height: 30px;
+      height: 40px;
+      margin-top: 10px;
       padding: 0px;
       background-color: #247f9e;
-      margin-right: 10px;
+      // margin-right: 10px;
       border: 0.0625rem solid #247f9e;
       &:hover {
         cursor: pointer;
         background-color: #175b72;
       }
     }
-    .login-link-contrainer {
+    .login-link-container {
       a {
         color: #247f9e;
         font-weight: bold;

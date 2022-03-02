@@ -36,7 +36,7 @@ export default ({ currentUser, logout, login, openModal }) => {
         Sign in
       </button>
       <button className="button signin-button" onClick={handleDemoUser}>
-        Demo User
+        Demo
       </button>
       <button id="search-button">
         <i className="fa-solid fa-magnifying-glass fa-xl"></i>

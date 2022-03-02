@@ -97,7 +97,7 @@ class Signup extends React.Component {
               Create a New Account
             </button>
             <p>Already have an account?</p>
-            <div className="login-link-contrainer">
+            <div className="login-link-container">
               <a onClick={this.openLogInModal}>Log in</a>
             </div>
           </label>
