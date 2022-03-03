@@ -14,8 +14,7 @@ const App = () => (
     </header>
     <Switch>
       <Route exact path="/" component={Home} />
-      {/* <AuthRoute path="/signup" component={SignupContainer} /> */}
-      {/* <AuthRoute path="/login" component={LoginContainer} /> */}
+
       {/* <ProtectedRoute path="/restaurants" component={RestaurantIndexContainer} /> */}
       {/* <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} /> */}
       <Redirect to="/" />
@@ -24,3 +23,10 @@ const App = () => (
 );
 
 export default App;
+
+{
+  /* <Route exact path="/" component={ReportIndexContainer} />
+<Route path="/reports/new" component={CreateReportFormContainer} />
+<Route exact path="/reports/:reportId" component={ReportShowContainer} />
+<Route path="/reports/:reportId/edit" component={EditReportFormContainer} /> */
+}

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-// import RestaurantsReducer from './restaurants_reducer';
+import RestaurantsReducer from './restaurants_reducer';
 // import ReservationsReducer from './reservations_reducer';
 // import UsersReducer from './users_reducer';
 // import FavoritesReducer from './favorites_reducer';
@@ -8,7 +8,7 @@ import { combineReducers } from 'redux';
 
 export default combineReducers({
     // users: UsersReducer,
-    // restaurants: RestaurantsReducer,
+    restaurants: RestaurantsReducer,
     // reservations: ReservationsReducer,
     // favorites: FavoritesReducer,
     // comments: CommentsReducer
