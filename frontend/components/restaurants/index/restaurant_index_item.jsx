@@ -5,19 +5,24 @@ import { Link, withRouter } from "react-router-dom";
 // 2. A link to the Restaurant's edit page with text 'Edit'.
 // 3. A button to delete the Restaurant.
 
-const RestaurantIndexItem = (props) => {
-  const { restaurant } = props;
-  return (
-    <div>
-      <span>{restaurant.name}</span>
-      <br />
-      <span>
-        {restaurant.cuisine} · {restaurant.expense} · {restaurant.neighborhood}
-      </span>
+class RestaurantIndexItem extends React.Component {
+  render() {
+    const { restaurant } = this.props;
+    return (
+      <div>
+        {/* <img src={restaurant.restaurantPhotoURL} /> */}
+        <span>{restaurant.photo}</span>
+        <span>{restaurant.name}</span>
+        <br />
+        <span>
+          {restaurant.cuisine} · {restaurant.expense} ·{" "}
+          {restaurant.neighborhood}
+        </span>
 
-      {/* on click function to be updated once create the frontend route for restaurant profile page */}
-      <button>Reserve</button>
-    </div>
-  );
-};
+        {/* on click function to be updated once create the frontend route for restaurant profile page */}
+        <button>Reserve</button>
+      </div>
+    );
+  }
+}
 export default RestaurantIndexItem;

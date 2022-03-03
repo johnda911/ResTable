@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# require 'open-uri'  
+require 'open-uri'  
 
-#     User.destroy_all 
+    User.destroy_all 
     Restaurant.destroy_all
 #     Comment.destroy_all
 #     Reservation.destroy_all
-#     ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('restaurants')
 #     ApplicationRecord.connection.reset_pk_sequence!('comments')
 #     ApplicationRecord.connection.reset_pk_sequence!('reservations')
@@ -80,6 +80,9 @@ restaurant1 = Restaurant.create!(
   parking_details: "Public Lot",
   payment_options: "#{PAYMENT.sample}",
 )
+file1 = open('https://res-table-dev.s3.amazonaws.com/kfc.jpeg')
+restaurant1.photo.attach(io: file1, filename: '1.jpg')
+
 restaurant2 = Restaurant.create!(
   name: RESTAURANT_META[2][:name],
   address: RESTAURANT_META[2][:address],
@@ -94,6 +97,9 @@ restaurant2 = Restaurant.create!(
   parking_details: "arking lots on Amsterdam & 75th Street",
   payment_options: "#{PAYMENT.sample}",
 )
+file2 = open('https://res-table-dev.s3.amazonaws.com/2.jpeg')
+restaurant2.photo.attach(io: file2, filename: '2.jpg')
+
 restaurant3 = Restaurant.create!(
   name: RESTAURANT_META[3][:name],
   address: RESTAURANT_META[3][:address],
@@ -108,6 +114,9 @@ restaurant3 = Restaurant.create!(
   parking_details: "Parking garage on 112 between Broadway and Amsterdam.",
   payment_options: "#{PAYMENT.sample}",
 )
+file3 = open('https://res-table-dev.s3.amazonaws.com/3.jpeg')
+restaurant3.photo.attach(io: file3, filename: '3.jpg')
+
 restaurant4 = Restaurant.create!(
   name: RESTAURANT_META[4][:name],
   address: RESTAURANT_META[4][:address],
@@ -122,6 +131,9 @@ restaurant4 = Restaurant.create!(
   parking_details: "There is parking available on the street. There are two parking garages one block away.",
   payment_options: "#{PAYMENT.sample}",
 )
+file4 = open('https://res-table-dev.s3.amazonaws.com/4.jpeg')
+restaurant4.photo.attach(io: file4, filename: '4.jpg')
+
 restaurant5 = Restaurant.create!(
   name: RESTAURANT_META[5][:name],
   address: RESTAURANT_META[5][:address],
@@ -136,6 +148,9 @@ restaurant5 = Restaurant.create!(
   parking_details: "There is street parking free after 7pm and there is a collection of garages in the area.",
   payment_options: "#{PAYMENT.sample}",
 )
+file5 = open('https://res-table-dev.s3.amazonaws.com/5.jpeg')
+restaurant5.photo.attach(io: file5, filename: '5.jpg')
+
 restaurant6 = Restaurant.create!(
   name: RESTAURANT_META[6][:name],
   address: RESTAURANT_META[6][:address],
@@ -150,6 +165,9 @@ restaurant6 = Restaurant.create!(
   parking_details: "There is ample and convenient parking in the Times Square area.",
   payment_options: "#{PAYMENT.sample}",
 )
+file6 = open('https://res-table-dev.s3.amazonaws.com/6.jpeg')
+restaurant6.photo.attach(io: file6, filename: '6.jpg')
+
 restaurant7 = Restaurant.create!(
   name: RESTAURANT_META[7][:name],
   address: RESTAURANT_META[7][:address],
@@ -164,6 +182,9 @@ restaurant7 = Restaurant.create!(
   parking_details: "Garage available on 58th street between 5th & 6th avenues, next to the Park Lane Hotel.",
   payment_options: "#{PAYMENT.sample}",
 )
+file7 = open('https://res-table-dev.s3.amazonaws.com/7.jpeg')
+restaurant7.photo.attach(io: file7, filename: '7.jpg')
+
 restaurant8 = Restaurant.create!(
   name: RESTAURANT_META[8][:name],
   address: RESTAURANT_META[8][:address],
@@ -179,6 +200,6 @@ restaurant8 = Restaurant.create!(
   parking_details: "Street Parking",
   payment_options: "#{PAYMENT.sample}",
 )
+file8 = open('https://res-table-dev.s3.amazonaws.com/7.jpeg')
+restaurant8.photo.attach(io: file8, filename: '8.jpg')
 
-
-# puts restaurant1

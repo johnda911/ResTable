@@ -7,7 +7,8 @@ class Restaurant < ApplicationRecord
     # has_many :commemters,
     #     through: :comments,
     #     source: :user
-    # has_one_attached 
+   
+    has_one_attached :photo
 
 
 end
