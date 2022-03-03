@@ -2,15 +2,16 @@ import { connect } from "react-redux";
 import RestaurantShow from "./restaurant_show";
 import { requestRestaurant } from "../../../actions/restaurant_actions";
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
   return {
-    restaurants: Object.values(state.entities.restaurants),
+    restaurant: state.entities.restaurants[ownProps.params.restaurantId],
   };
 };
 
 const mDTP = (dispatch) => {
   return {
-    requestRestaurant: () => dispatch(requestRestaurant()),
+    requestRestaurant: (restaurantId) =>
+      dispatch(requestRestaurant(restaurantId)),
   };
 };
 

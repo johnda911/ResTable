@@ -11,7 +11,7 @@ class RestaurantIndexItem extends React.Component {
     return (
       // to be updated once I have the restaurant show page link
       <Link to="/" className="restaurant-profile-item">
-        <img src={restaurant.restaurantPhotoURL} />
+        {/* <img src={restaurant.restaurantPhotoURL} /> */}
         <span className="res-profile-img">{restaurant.photo}</span>
         <span className="res-profile-name">{restaurant.name}</span>
         <span className="res-profile-info">

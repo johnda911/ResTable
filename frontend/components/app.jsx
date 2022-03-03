@@ -4,6 +4,7 @@ import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import Modal from "./modal/modal";
 import Home from "./home/home";
 import NavBarContainer from "./nav_bar/nav_bar_container";
+import RestaurantShowContainer from "./restaurants/show/restaurant_show_container";
 import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 
 const App = () => (
@@ -15,8 +16,12 @@ const App = () => (
       </header>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route
+          exact
+          path="/:restaurantId"
+          component={RestaurantShowContainer}
+        />
 
-        {/* <ProtectedRoute path="/restaurants" component={RestaurantIndexContainer} /> */}
         {/* <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} /> */}
         <Redirect to="/" />
       </Switch>
