@@ -1,5 +1,27 @@
 // home
+.app {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(235, 233, 233);
+  .body-container {
+    background-color: whitesmoke;
+    max-width: 1500px;
+    width: 1400px;
+  }
+}
+.main-content {
+  display: flex;
+  // flex-direction: column;
+  justify-content: space-around;
+  .restaurant-index-container {
+    // background-color: green;
+    width: 95%;
+    min-width: 500px;
+  }
+}
+
 .search-box {
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

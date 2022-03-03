@@ -9,19 +9,19 @@ class RestaurantIndexItem extends React.Component {
   render() {
     const { restaurant } = this.props;
     return (
-      <div>
-        {/* <img src={restaurant.restaurantPhotoURL} /> */}
-        <span>{restaurant.photo}</span>
-        <span>{restaurant.name}</span>
-        <br />
-        <span>
+      // to be updated once I have the restaurant show page link
+      <Link to="/" className="restaurant-profile-item">
+        <img src={restaurant.restaurantPhotoURL} />
+        <span className="res-profile-img">{restaurant.photo}</span>
+        <span className="res-profile-name">{restaurant.name}</span>
+        <span className="res-profile-info">
           {restaurant.cuisine} · {restaurant.expense} ·{" "}
           {restaurant.neighborhood}
         </span>
 
         {/* on click function to be updated once create the frontend route for restaurant profile page */}
-        <button>Reserve</button>
-      </div>
+        <button className="res-profile-btn">Reserve</button>
+      </Link>
     );
   }
 }

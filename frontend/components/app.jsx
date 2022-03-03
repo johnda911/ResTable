@@ -9,16 +9,18 @@ import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 const App = () => (
   <div className="app">
     <Modal />
-    <header>
-      <NavBarContainer />
-    </header>
-    <Switch>
-      <Route exact path="/" component={Home} />
+    <div className="body-container">
+      <header>
+        <NavBarContainer />
+      </header>
+      <Switch>
+        <Route exact path="/" component={Home} />
 
-      {/* <ProtectedRoute path="/restaurants" component={RestaurantIndexContainer} /> */}
-      {/* <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} /> */}
-      <Redirect to="/" />
-    </Switch>
+        {/* <ProtectedRoute path="/restaurants" component={RestaurantIndexContainer} /> */}
+        {/* <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} /> */}
+        <Redirect to="/" />
+      </Switch>
+    </div>
   </div>
 );
 

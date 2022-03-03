@@ -6,6 +6,8 @@ export default () => (
     <div className="search-box">
       <h1>Find your table for any occasion</h1>
     </div>
-    <RestaurantIndexContainer />
+    <div className="main-content">
+      <RestaurantIndexContainer />
+    </div>
   </div>
 );

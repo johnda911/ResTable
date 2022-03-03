@@ -8,12 +8,12 @@
 
 require 'open-uri'  
 
-    User.destroy_all 
-    Restaurant.destroy_all
+User.destroy_all 
+Restaurant.destroy_all
 #     Comment.destroy_all
 #     Reservation.destroy_all
-    ApplicationRecord.connection.reset_pk_sequence!('users')
-    ApplicationRecord.connection.reset_pk_sequence!('restaurants')
+ApplicationRecord.connection.reset_pk_sequence!('users')
+ApplicationRecord.connection.reset_pk_sequence!('restaurants')
 #     ApplicationRecord.connection.reset_pk_sequence!('comments')
 #     ApplicationRecord.connection.reset_pk_sequence!('reservations')
 
@@ -31,7 +31,7 @@ RESTAURANT_META = [
         address: "994 Columbus Ave New York, NY 10025",
     },
     {
-        name: "KFC",
+        name: "Le Coucou",
         address: "904 Columbus Ave New York, NY 10025",
     },
     {
@@ -200,6 +200,6 @@ restaurant8 = Restaurant.create!(
   parking_details: "Street Parking",
   payment_options: "#{PAYMENT.sample}",
 )
-file8 = open('https://res-table-dev.s3.amazonaws.com/7.jpeg')
+file8 = open('https://res-table-dev.s3.amazonaws.com/8.jpeg')
 restaurant8.photo.attach(io: file8, filename: '8.jpg')
 
