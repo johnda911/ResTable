@@ -21,14 +21,24 @@ class RestaurantShow extends React.Component {
             </div>
             <div className="main-info">
               <div className="left-bar">
-                <p>{restaurant.name}</p>
+                <div className="navigation">
+                  <div>Overview</div>
+                  <div>Experiences</div>
+                  <div>Offers</div>
+                  <div>Photos</div>
+                  <div>Menus</div>
+                  <div>Reviews</div>
+                </div>
+                <h2 className="rest-name">{restaurant.name}</h2>
+                <p>
+                  {restaurant.expense} {restaurant.cuisine}
+                </p>
+                <p>Top Tags</p>
+                <p>{restaurant.description}</p>
               </div>
               <div className="right-bar">
                 <p>{restaurant.address}</p>
-                <p>{restaurant.description}</p>
                 <p>{restaurant.phone}</p>
-                <p>{restaurant.cuisine}</p>
-                <p>{restaurant.expense}</p>
                 <p>{restaurant.neighborhood}</p>
                 <p>{restaurant.noperation_hours}</p>
                 <p>{restaurant.dining_style}</p>
