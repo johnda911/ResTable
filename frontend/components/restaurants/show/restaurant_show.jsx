@@ -23,7 +23,7 @@ class RestaurantShow extends React.Component {
             <div className="main-info">
               <div className="left-bar">
                 <div className="navigation">
-                  <div id="nav-session">Overview</div>
+                  <div>Overview</div>
                   <div>Experiences</div>
                   <div>Offers</div>
                   <div>Popular dishes</div>
