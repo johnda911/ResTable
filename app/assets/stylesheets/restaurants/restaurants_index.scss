@@ -54,3 +54,33 @@
     }
   }
 }
+
+.res-profile-img {
+  width: 100%;
+}
+.res-profile-name {
+  font-weight: 800px;
+  color: black;
+  padding: 6px;
+}
+.res-profile-info {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 0.8rem;
+  color: rgb(30, 30, 30);
+  padding: 6px;
+  & > * {
+    margin-right: 8px;
+  }
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(235, 234, 234, 0.996);
+}
+
+.res-profile-btn {
+  color: rgb(204, 4, 4);
+  font-weight: 300px;
+  background-color: transparent;
+  border-top: 10px;
+  border: 1px solid lightgrey;
+  text-align: left;
+}
