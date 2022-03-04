@@ -17,16 +17,16 @@ class RestaurantShow extends React.Component {
             <div className="top-img">
               <img
                 className="profile-photo"
-                src={restaurant.restaurantPhotoURL}
+                // src={restaurant.restaurantPhotoURL}
               />
             </div>
             <div className="main-info">
               <div className="left-bar">
                 <div className="navigation">
-                  <div>Overview</div>
+                  <div id="nav-session">Overview</div>
                   <div>Experiences</div>
                   <div>Offers</div>
-                  <div>Photos</div>
+                  <div>Popular dishes</div>
                   <div>Menus</div>
                   <div>Reviews</div>
                 </div>

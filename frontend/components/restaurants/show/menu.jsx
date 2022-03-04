@@ -34,7 +34,7 @@ const Menu = (props) => {
         <div className="dessert">
           <div>Dessert</div>
           <div>
-            <h3>Max Famous Chocolate Mess Party for Two</h3>
+            <h3>MAX FAMOUS CHOCOLATE MESS PARTY FOR TWO</h3>
             <h3>$18.00</h3>
             <div>
               Warm chocolate mud cake in milk chocolate ganache, piles of
