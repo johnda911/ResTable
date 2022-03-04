@@ -2,11 +2,17 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
 class RestaurantIndexItem extends React.Component {
+  // handleClick() => {
+
+  // }
   render() {
     const { restaurant } = this.props;
     return (
-      // to be updated once I have the restaurant show page link
-      <Link to="/" className="restaurant-profile-item">
+      <Link
+        to={`/restaurant/${restaurant.id}`}
+        target="_blank"
+        className="restaurant-profile-item"
+      >
         {/* <img src={restaurant.restaurantPhotoURL} /> */}
         <span className="res-profile-img">{restaurant.photo}</span>
         <span className="res-profile-name">{restaurant.name}</span>
