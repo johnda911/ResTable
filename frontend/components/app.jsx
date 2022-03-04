@@ -21,8 +21,6 @@ const App = () => (
           path="/restaurant/:restaurantId"
           component={RestaurantShowContainer}
         />
-
-        {/* <Route path="/restaurants/:restaurantId" component={RestaurantShowContainer} /> */}
         <Redirect to="/" />
       </Switch>
     </div>
@@ -30,10 +28,3 @@ const App = () => (
 );
 
 export default App;
-
-{
-  /* <Route exact path="/" component={ReportIndexContainer} />
-<Route path="/reports/new" component={CreateReportFormContainer} />
-<Route exact path="/reports/:reportId" component={ReportShowContainer} />
-<Route path="/reports/:reportId/edit" component={EditReportFormContainer} /> */
-}
