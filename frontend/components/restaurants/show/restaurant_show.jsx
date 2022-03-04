@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import RestaurantShowItem from "./restaurant_show_item";
+import SafetyPrecautions from "./safety_precautions";
+import Menu from "./menu";
 
 class RestaurantShow extends React.Component {
   componentDidMount() {
@@ -35,6 +36,8 @@ class RestaurantShow extends React.Component {
                 </p>
                 <p>Top Tags</p>
                 <p>{restaurant.description}</p>
+                <SafetyPrecautions />
+                <Menu />
               </div>
               <div className="right-bar">
                 <p>{restaurant.address}</p>
