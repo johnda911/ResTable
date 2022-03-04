@@ -13,7 +13,10 @@ class RestaurantShow extends React.Component {
       <>
         {restaurant && (
           <div>
-            res show pg
+            <img
+              className="profile-photo"
+              src={restaurant.restaurantPhotoURL}
+            />
             <p>{restaurant.name}</p>
             <p>{restaurant.address}</p>
             <p>{restaurant.description}</p>
