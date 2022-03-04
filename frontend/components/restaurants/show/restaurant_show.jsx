@@ -16,7 +16,7 @@ class RestaurantShow extends React.Component {
             <div className="top-img">
               <img
                 className="profile-photo"
-                src={restaurant.restaurantPhotoURL}
+                // src={restaurant.restaurantPhotoURL}
               />
             </div>
             <div className="main-info">
