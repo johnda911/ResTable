@@ -4,7 +4,7 @@ import { requestRestaurant } from "../../../actions/restaurant_actions";
 
 const mSTP = (state, ownProps) => {
   return {
-    restaurant: state.entities.restaurants[ownProps.params.restaurantId],
+    restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
   };
 };
 

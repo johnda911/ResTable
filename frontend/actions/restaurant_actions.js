@@ -18,6 +18,6 @@ export const requestRestaurants = () => dispatch => {
 }
 
 export const requestRestaurant = (restaurantId) => dispatch => {
-    return ReportAPIUtil.fetchRestaurant(restaurantId)
+    return RestaurantAPIUtil.fetchRestaurant(restaurantId)
         .then(restaurant => dispatch(receiveRestaurant(restaurant)));
 }

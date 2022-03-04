@@ -4,7 +4,6 @@ import {
 } from '../actions/restaurant_actions';
 
 
-
 const RestaurantsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState);

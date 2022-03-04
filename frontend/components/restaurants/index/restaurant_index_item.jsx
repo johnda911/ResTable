@@ -1,10 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-// 1. A link to the Restaurant's show page with text of the Restaurant's date created
-// 2. A link to the Restaurant's edit page with text 'Edit'.
-// 3. A button to delete the Restaurant.
-
 class RestaurantIndexItem extends React.Component {
   render() {
     const { restaurant } = this.props;
