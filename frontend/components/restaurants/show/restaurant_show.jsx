@@ -12,23 +12,31 @@ class RestaurantShow extends React.Component {
     return (
       <>
         {restaurant && (
-          <div>
-            <img
-              className="profile-photo"
-              src={restaurant.restaurantPhotoURL}
-            />
-            <p>{restaurant.name}</p>
-            <p>{restaurant.address}</p>
-            <p>{restaurant.description}</p>
-            <p>{restaurant.phone}</p>
-            <p>{restaurant.cuisine}</p>
-            <p>{restaurant.expense}</p>
-            <p>{restaurant.neighborhood}</p>
-            <p>{restaurant.noperation_hours}</p>
-            <p>{restaurant.dining_style}</p>
-            <p>{restaurant.dress_code}</p>
-            <p>{restaurant.parking_details}</p>
-            <p>{restaurant.payment_options}</p>
+          <div className="profile-pg-container">
+            <div className="top-img">
+              <img
+                className="profile-photo"
+                src={restaurant.restaurantPhotoURL}
+              />
+            </div>
+            <div className="main-info">
+              <div className="left-bar">
+                <p>{restaurant.name}</p>
+              </div>
+              <div className="right-bar">
+                <p>{restaurant.address}</p>
+                <p>{restaurant.description}</p>
+                <p>{restaurant.phone}</p>
+                <p>{restaurant.cuisine}</p>
+                <p>{restaurant.expense}</p>
+                <p>{restaurant.neighborhood}</p>
+                <p>{restaurant.noperation_hours}</p>
+                <p>{restaurant.dining_style}</p>
+                <p>{restaurant.dress_code}</p>
+                <p>{restaurant.parking_details}</p>
+                <p>{restaurant.payment_options}</p>
+              </div>
+            </div>
           </div>
         )}
       </>
