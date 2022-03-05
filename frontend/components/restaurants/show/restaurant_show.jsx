@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SafetyPrecautions from "./safety_precautions";
 import Menu from "./menu";
+import DollorRange from "./dollor_range";
+import { GiForkKnifeSpoon } from "react-icons/gi";
+import { GrLocation } from "react-icons/gr";
 
 class RestaurantShow extends React.Component {
   componentDidMount() {
@@ -17,7 +20,7 @@ class RestaurantShow extends React.Component {
             <div className="top-img">
               <img
                 className="profile-photo"
-                // src={restaurant.restaurantPhotoURL}
+                src={restaurant.restaurantPhotoURL}
               />
             </div>
             <div className="main-info">
@@ -31,23 +34,42 @@ class RestaurantShow extends React.Component {
                   <div>Reviews</div>
                 </div>
                 <h2 className="rest-name">{restaurant.name}</h2>
-                <p>
-                  {restaurant.expense} {restaurant.cuisine}
-                </p>
-                <p>Top Tags</p>
-                <p>{restaurant.description}</p>
-                <SafetyPrecautions />
-                <Menu />
+                <div className="rest-meta-data">
+                  <DollorRange expense={restaurant.expense} />
+                  <div className="short-div">
+                    <GiForkKnifeSpoon className="fork-icon" />
+                    <span>{restaurant.cuisine}</span>
+                  </div>
+                </div>
+                <div class="top-tag">
+                  <div class="tag-title">Top Tags:</div>
+                  <div class="tag-badge">Special Occasion</div>
+                  <div class="tag-badge">Good For A Date</div>
+                  <div class="tag-badge">Good For Anniversaries</div>
+                </div>
+                <div className="rest-description">{restaurant.description}</div>
+                <div className="safety-precautions">
+                  <SafetyPrecautions />
+                </div>
+                <div className="module-container">
+                  <Menu />
+                </div>
               </div>
               <div className="right-bar">
-                <p>{restaurant.address}</p>
-                <p>{restaurant.phone}</p>
-                <p>{restaurant.neighborhood}</p>
-                <p>{restaurant.noperation_hours}</p>
-                <p>{restaurant.dining_style}</p>
-                <p>{restaurant.dress_code}</p>
-                <p>{restaurant.parking_details}</p>
-                <p>{restaurant.payment_options}</p>
+                <div className="attri">
+                  <div className="attri-name">
+                    <GrLocation className="icon" />
+                    Address
+                  </div>
+                  <div className="attri-content">{restaurant.address}</div>
+                </div>
+                <div>{restaurant.phone}</div>
+                <div>{restaurant.neighborhood}</div>
+                <div>{restaurant.noperation_hours}</div>
+                <div>{restaurant.dining_style}</div>
+                <div>{restaurant.dress_code}</div>
+                <div>{restaurant.parking_details}</div>
+                <div>{restaurant.payment_options}</div>
               </div>
             </div>
           </div>
