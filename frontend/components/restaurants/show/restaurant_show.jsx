@@ -48,6 +48,25 @@ class RestaurantShow extends React.Component {
                   <div class="tag-badge">Good For Anniversaries</div>
                 </div>
                 <div className="rest-description">{restaurant.description}</div>
+
+                {/* <p>
+                  Hudson Valley Steakhouse bringing 30 years of food and service
+                  experience to Westchester County, located in Yorktown Ht's,
+                  offering best quality prime and dry-aged Steak, Ribeye, Filet
+                  Mignon, 40-ounce Porterhouse, Tomahawk, fresh Seafood and{" "}
+                  <span id="dots">...</span>
+                  <span id="more">
+                    Italian specialties. Our bar and hightop table are made from
+                    black walnut. Owner Tim Prengjoni and Staff stride to make
+                    your dinning experience only the best. We welcome you, your
+                    family, and friends to our home. Tim Prengjoni
+                  </span>
+                </p> */}
+
+                <button onclick="myFunction()" id="myBtn">
+                  Read more
+                </button>
+
                 <div className="safety-precautions">
                   <SafetyPrecautions />
                 </div>
