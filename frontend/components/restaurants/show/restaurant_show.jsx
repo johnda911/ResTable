@@ -2,9 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SafetyPrecautions from "./safety_precautions";
 import Menu from "./menu";
+import Rating from "./rating";
 import DollorRange from "./dollor_range";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { GrLocation } from "react-icons/gr";
+import { AiOutlinePhone } from "react-icons/ai";
+import { BiBuildingHouse } from "react-icons/bi";
+import { BsClockHistory } from "react-icons/bs";
+import { BiDish } from "react-icons/bi";
+import { GiLargeDress } from "react-icons/gi";
+import { RiParkingBoxLine } from "react-icons/ri";
+import { MdPayment } from "react-icons/md";
 
 class RestaurantShow extends React.Component {
   componentDidMount() {
@@ -26,16 +34,21 @@ class RestaurantShow extends React.Component {
             <div className="main-info">
               <div className="left-bar">
                 <div className="navigation">
-                  <div>Overview</div>
+                  <div id="overview">Overview</div>
                   <div>Experiences</div>
                   <div>Offers</div>
                   <div>Popular dishes</div>
-                  <div>Menus</div>
+                  <div>Menu</div>
                   <div>Reviews</div>
                 </div>
                 <h2 className="rest-name">{restaurant.name}</h2>
                 <div className="rest-meta-data">
-                  <DollorRange expense={restaurant.expense} />
+                  <div className="short-div">
+                    <Rating rating="4.4" />
+                  </div>
+                  <div className="short-div">
+                    <DollorRange expense={restaurant.expense} />
+                  </div>
                   <div className="short-div">
                     <GiForkKnifeSpoon className="fork-icon" />
                     <span>{restaurant.cuisine}</span>
@@ -62,10 +75,9 @@ class RestaurantShow extends React.Component {
                     family, and friends to our home. Tim Prengjoni
                   </span>
                 </p> */}
-
-                <button onclick="myFunction()" id="myBtn">
+                {/* <button onclick="myFunction()" id="myBtn">
                   Read more
-                </button>
+                </button> */}
 
                 <div className="safety-precautions">
                   <SafetyPrecautions />
@@ -82,13 +94,65 @@ class RestaurantShow extends React.Component {
                   </div>
                   <div className="attri-content">{restaurant.address}</div>
                 </div>
-                <div>{restaurant.phone}</div>
-                <div>{restaurant.neighborhood}</div>
-                <div>{restaurant.noperation_hours}</div>
-                <div>{restaurant.dining_style}</div>
-                <div>{restaurant.dress_code}</div>
-                <div>{restaurant.parking_details}</div>
-                <div>{restaurant.payment_options}</div>
+                <div className="attri">
+                  <div className="attri-name">
+                    <AiOutlinePhone className="icon" />
+                    Phone
+                  </div>
+                  <div className="attri-content">{restaurant.phone}</div>
+                </div>
+                <div className="attri">
+                  <div className="attri-name">
+                    <BiBuildingHouse className="icon" />
+                    Neighborhood
+                  </div>
+                  <div className="attri-content">{restaurant.neighborhood}</div>
+                </div>
+                <div className="attri">
+                  <div className="attri-name">
+                    <BsClockHistory className="icon" />
+                    Hours of operation
+                  </div>
+                  <div className="attri-content">
+                    {restaurant.operation_hours}
+                  </div>
+                </div>
+
+                <div className="attri">
+                  <div className="attri-name">
+                    <BiDish className="icon" />
+                    Dining Style
+                  </div>
+                  <div className="attri-content">{restaurant.dining_style}</div>
+                </div>
+
+                <div className="attri">
+                  <div className="attri-name">
+                    <GiLargeDress className="icon" />
+                    Dress Code
+                  </div>
+                  <div className="attri-content">{restaurant.dress_code}</div>
+                </div>
+
+                <div className="attri">
+                  <div className="attri-name">
+                    <RiParkingBoxLine className="icon" />
+                    Parking details
+                  </div>
+                  <div className="attri-content">
+                    {restaurant.parking_details}
+                  </div>
+                </div>
+
+                <div className="attri">
+                  <div className="attri-name">
+                    <MdPayment className="icon" />
+                    Payment options
+                  </div>
+                  <div className="attri-content">
+                    {restaurant.payment_options}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
