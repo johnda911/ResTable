@@ -20,9 +20,6 @@ class Api::ReservationsController < ApplicationController
         end
     end
 
-    # def update
-    # end
-
     def destroy
         @deleted_reservation = Reservation.find(params[:id])
         if @deleted_reservation.delete
