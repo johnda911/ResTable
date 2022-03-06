@@ -1,6 +1,7 @@
 // Place all the styles related to the api/restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .restaurant-index-container {
   display: flex;
   flex-direction: column;
@@ -9,8 +10,8 @@
   h2 {
     display: block;
     width: 100%;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 25px;
+    font-weight: 600;
   }
 }
 
@@ -77,7 +78,7 @@
 }
 
 .res-profile-btn {
-  color: rgb(204, 4, 4);
+  color: var(--red);
   font-weight: 300px;
   background-color: transparent;
   border-top: 10px;

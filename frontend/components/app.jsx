@@ -21,6 +21,7 @@ const App = () => (
           path="/restaurant/:restaurantId"
           component={RestaurantShowContainer}
         />
+        {/* booking/confirmation */}
         <Redirect to="/" />
       </Switch>
     </div>

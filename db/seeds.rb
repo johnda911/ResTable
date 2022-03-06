@@ -86,7 +86,7 @@ restaurant1.photo.attach(io: file1, filename: '1.jpg')
 restaurant2 = Restaurant.create!(
   name: RESTAURANT_META[2][:name],
   address: RESTAURANT_META[2][:address],
-  description: "Welcome to #{RESTAURANT_META[2][:name]}, the restaurant features a menu which includes Large variety of tappas, seafood, salads, burger ,meat and chicken entrees, vegan, gluten-free , childrens meals, and good selection of wines ,beers and cocktails.",
+  description: "Welcome to #{RESTAURANT_META[2][:name]}, the restaurant features a menu which includes Large variety of tappas, seafood, salads, burger ,meat and chicken entrees, vegan, gluten-free, childrens meals, and good selection of wines, beers and cocktails.",
   phone: "(201)977-6094",
   cuisine: "#{CUISINE.sample}", 
   expense: 3,

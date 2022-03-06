@@ -10,7 +10,7 @@ class RestaurantIndexItem extends React.Component {
     return (
       <Link
         to={`/restaurant/${restaurant.id}`}
-        target="_blank"
+        // target="_blank"
         className="restaurant-profile-item"
       >
         <img src={restaurant.restaurantPhotoURL} />

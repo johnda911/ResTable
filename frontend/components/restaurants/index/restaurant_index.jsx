@@ -25,8 +25,6 @@ class RestaurantIndex extends React.Component {
             );
           })}
         </div>
-        {/* to be update once have the frontend route for restaurant show */}
-        {/* <Link to="/">Restaurant Profile Page</Link> */}
       </div>
     );
   }
