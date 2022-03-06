@@ -1,0 +1,1 @@
+json.extract! @deleted_reservation, :id

@@ -7,6 +7,8 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.string :phone, null: false
       t.integer :restaurant_id, null: false
       t.integer :user_id, null: false
+      t.string :first_name
+      t.string :last_name
 
       t.timestamps
     end

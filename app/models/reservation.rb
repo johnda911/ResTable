@@ -1,11 +1,11 @@
 class Reservation < ApplicationRecord
-    validates :party_size, :date, :time, :phone, presence: true
+    # if current_user 
+        validates :party_size, :date, :time, :phone, :restaurant_id, presence: true
+    # else
+    #     validates :first_name, :last_name, :email, presence: true
+    # end
 
-    # to be commented in after creatingn comments model
-    # has_many :comments
-    # has_many :commemters,
-    #     through: :comments,
-    #     source: :user
-   
+    # belongs_to :user
+    belongs_to :restaurant
 
 end
