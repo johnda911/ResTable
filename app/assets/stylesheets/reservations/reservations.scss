@@ -1,0 +1,86 @@
+$nav-height: 45px;
+$field-top: 16px;
+$field-bottom: 8px;
+
+.reservation-form {
+  background-color: whitesmoke;
+  width: 100%;
+  height: 280px;
+  bottom: 2px;
+  box-shadow: 0 6px 6px rgba(46, 46, 46, 0.4);
+  margin-bottom: 30px;
+  padding: 20px;
+  padding-top: 10px;
+  margin-top: -$nav-height;
+  background-color: whitesmoke;
+  // tadjust reservation form in a relative position
+  //   position: relative;
+  //   z-index: 999;
+  //   position: fixed;
+  //   top: $nav-height + 300px;
+  //   right: 50%;
+
+  .title {
+    height: ($nav-height)-10px;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 3px;
+  }
+}
+
+.party-size {
+  margin-top: $field-top;
+}
+.reservation-sub-title {
+  margin-bottom: $field-bottom;
+}
+
+.date-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: $field-top;
+
+  .date {
+    width: 48%;
+  }
+
+  .time {
+    width: 48%;
+  }
+}
+
+.date-picker {
+  font-size: 14px;
+}
+
+.reserve-table-btn {
+  background-color: var(--red);
+  width: 100%;
+  color: whitesmoke;
+  margin-top: $field-top;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 16px;
+  border-radius: 3px;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(230, 57, 57);
+  }
+}
+
+.popularity {
+  margin-top: $field-top;
+  font-size: 13px;
+  font-weight: 450;
+  height: 18px;
+}
+.icon {
+  margin-right: 3px;
+  font-size: 18px;
+}
