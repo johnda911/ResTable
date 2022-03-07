@@ -1,23 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
+import { AiOutlineCalendar } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
 
 export default ({ currentUser, logout, login, openModal }) => {
   const handleDemoUser = () => login();
   const display = currentUser ? (
     <>
-      <div className="profile-dropdown">
+      {/* <div className="profile-dropdown">
         <h3>Hello, {currentUser.username}!</h3>
         <button onClick={logout}>Sign out</button>
-      </div>
+      </div> */}
       <div className="icon-group">
-        <button className="icon-button">
-          <i className="fa-regular fa-user fa-xl"></i>
+        <button id="icon-button">
+          <CgProfile className="ico" />
         </button>
-        <button className="icon-button">
-          <i className="fa-regular fa-calendar fa-xl"></i>
+        <button id="icon-button">
+          <AiOutlineCalendar className="ico" />
         </button>
         <button id="search-button">
-          <i className="fa-solid fa-magnifying-glass fa-xl"></i>
+          <BiSearch className="ico" />
         </button>
       </div>
     </>

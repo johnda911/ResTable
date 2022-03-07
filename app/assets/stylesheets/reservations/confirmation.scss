@@ -1,1 +1,141 @@
+.confirmation-box {
+  display: block;
+  background-color: #e1e3e6;
+  height: 100vh;
+  padding-top: 50px;
+  padding-left: 150px;
+  min-width: 780px;
+}
 
+.confirmation-container {
+  display: flex;
+  flex-direction: column;
+  //   background-color: orange;
+  background-color: whitesmoke;
+  border-radius: 3px;
+  border: 1px solid lightgrey;
+  width: 65%;
+  padding: 40px;
+}
+
+.top-session {
+  display: flex;
+  flex-direction: row;
+}
+
+.small-photo {
+  width: 220px;
+  height: 20vh;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 20px;
+}
+
+.info-list div {
+  margin-bottom: 11px;
+  height: 25px;
+}
+.confirmation-title {
+  font-size: 24px;
+  font-weight: 550;
+}
+
+.res-confirmed {
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+}
+
+.check-icon {
+  padding-right: 5px;
+}
+.uncheck-icon {
+  color: var(--red);
+}
+.calender-icon {
+  margin-right: 5px;
+  font-weight: 600;
+  // size: 16px;
+  // height: 30px;
+}
+
+.confirm-info {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.confirm-info-div {
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+}
+.confirmation-info {
+  margin-right: 4px;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: var(--red);
+  border: none;
+  font-size: 18px;
+  font-weight: 400;
+  border-right: 2px solid lightgrey;
+  // margin-right: 18px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.mid-session {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.halo-box {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  height: 40px;
+  padding: 20px;
+  box-shadow: 4px 6px 6px rgba(46, 46, 46, 0.281);
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.confirmation-icon {
+  width: 30%;
+  color: var(--red);
+  // font-size: 15px;
+  // width: 40px;
+}
+
+.black-char {
+  font-size: 15px;
+  font-weight: 450;
+  color: black;
+}
+.grey-res {
+  font-size: 14px;
+  font-weight: 400;
+  color: lightslategrey;
+  margin-top: 10px;
+}
+
+.confirmation-back-to-res {
+  position: relative;
+  bottom: 0;
+  width: 230px;
+  border-style: solid;
+  border: none;
+  border-width: thin;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: none;
+  transition: all 0.3s;
+  text-decoration: none;
+  text-align: left;
+}
+
+.iconnn {
+  width: 100%;
+  height: 80%;
+}
