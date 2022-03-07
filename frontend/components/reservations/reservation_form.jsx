@@ -1,5 +1,6 @@
 import React from "react";
 import * as ReservationAPIUtil from "../../utils/reservation_api_util";
+import { useHistory } from "react-router-dom";
 
 //mui react component library
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
@@ -40,16 +41,11 @@ export default class ReservationForm extends React.Component {
     const reservationDate = this.state.date;
     reservationDate.setHours(hour);
     reservationDate.setMinutes(miniute);
+    console.log(reservationDate); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
+    console.log(this.state.date); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time
+    console.log(this.state.time); //18:30:00
 
     const partySize = this.state.partySize;
-
-    // this.props.createReservation({
-    //   restaurant_id: this.props.restaurant_id,
-    //   date: reservationDate,
-    //   time: reservationDate,
-    //   party_size: partySize,
-    //   phone: "(123)-456-7890",
-    // });
 
     ReservationAPIUtil.createReservation({
       restaurant_id: this.props.restaurant_id,
@@ -60,8 +56,6 @@ export default class ReservationForm extends React.Component {
     }).then((reservation) => {
       this.props.history.push(`/reservation/${reservation.id}/confirmation`);
     });
-
-    // this.props.history.push("/reservation/confirmation");
   }
 
   render() {
@@ -99,9 +93,9 @@ export default class ReservationForm extends React.Component {
                   label=""
                   value={this.state.date}
                   onChange={(newDate) => {
-                    console.log(typeof newDate);
-                    console.log(newDate);
-                    console.log(Object.keys(newDate));
+                    // console.log(typeof newDate);
+                    // console.log(newDate);
+                    // console.log(Object.keys(newDate));
                     this.setState({ date: newDate });
                   }}
                   renderInput={(params) => (

@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 // import * as ReservationAPIUtil from "../../utils/reservation_api_util";
 import {
   requestReservation,
@@ -31,9 +33,19 @@ class ReservationConfirmation extends React.Component {
     this.setState({ cancelled: true });
     this.props.deleteReservation(this.props.reservation.id);
   }
+  // handleProfile() {}
 
   render() {
     const { reservation } = this.props;
+    if (reservation && reservation.date) {
+      reservation.date = new Date(Date.parse(reservation.date)).toLocaleString(
+        "en-US",
+        {
+          timeZone: "America/New_York",
+        }
+      );
+    }
+
     return (
       <div className="confirmation-box">
         {reservation && (
@@ -56,41 +68,64 @@ class ReservationConfirmation extends React.Component {
                       cancelled
                     </div>
                   ) : (
-                    <div>
+                    <div className="res-confirmed">
                       <FcApproval className="check-icon" /> Reservation
                       confirmed
                     </div>
                   )}
                 </div>
-                <div>
-                  <CgProfile />
-                  {reservation.party_size}(Standard seating)
+                <div className="confirm-info-div">
+                  <span className="confirmation-info">
+                    <CgProfile className="calender-icon" />
+                    {reservation.party_size}(Standard seating )
+                  </span>
+                  <span className="confirmation-info">
+                    <AiOutlineCalendar className="calender-icon" />
+                    {reservation.date}
+                  </span>
                 </div>
-                <div>
-                  <AiOutlineCalendar />
-                  {reservation.date}
-                </div>
-                <button className="cancel-btn" onClick={this.handleCancel}>
-                  Cancel the reservation
-                </button>
+                {this.state.cancelled ? (
+                  <Link to="/">Go back to homepage</Link>
+                ) : (
+                  <span>
+                    <button className="cancel-btn" onClick={this.handleCancel}>
+                      Cancel
+                    </button>
+                    {/* <button className="cancel-btn" onClick={this.handleProfile}>
+                      My Reservations
+                    </button> */}
+                  </span>
+                )}
               </div>
             </div>
-            <div className="mid-session">
-              <div className="halo-box">
-                <div className="black-char">
-                  {" "}
-                  <FaMapMarkedAlt />
-                  Browse menu
+            {!this.state.cancelled && (
+              <div className="mid-session">
+                <div className="halo-box">
+                  <div className="confirmation-icon">
+                    <FaMapMarkedAlt className="iconnn" />
+                  </div>
+                  <Link
+                    className="confirmation-back-to-res"
+                    to={`/restaurant/${reservation.restaurant_id}`}
+                  >
+                    <div className="black-char">Browse menu</div>
+                    <div className="grey-res">Restaurant's Profile</div>
+                  </Link>
                 </div>
-                <div className="grey-res">Restaurant's Profile</div>
-              </div>
-              <div className="halo-box">
-                <div className="black-char">
-                  <MdOutlineMenuBook />
-                  Get directions
+                <div className="halo-box">
+                  <div className="confirmation-icon">
+                    <MdOutlineMenuBook className="iconnn" />
+                  </div>
+                  <Link
+                    className="confirmation-back-to-res"
+                    to={`/restaurant/${reservation.restaurant_id}`}
+                  >
+                    <div className="black-char">Get directions</div>
+                    <div className="grey-res">Restaurant's Address</div>
+                  </Link>
                 </div>
               </div>
-            </div>
+            )}
             {/* <div className="lower-session">
               <div>Who's going?</div>
               <div>{currentUser.username}</div>

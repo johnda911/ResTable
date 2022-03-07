@@ -11,7 +11,6 @@ export const createReservation = (reservation) =>
     data: { reservation },
   });
 export const deleteReservation = (reservationId) => {
-  console.log("deleting======");
   return $.ajax({
     url: `/api/reservations/${reservationId}`,
     method: "DELETE",
