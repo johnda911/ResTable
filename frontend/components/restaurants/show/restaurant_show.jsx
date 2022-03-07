@@ -4,6 +4,7 @@ import SafetyPrecautions from "./safety_precautions";
 import Menu from "./menu";
 import Rating from "./rating";
 import DollorRange from "./dollor_range";
+import ReservationFormContainer from "../../reservations/reservation_form_container";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { GrLocation } from "react-icons/gr";
 import { AiOutlinePhone } from "react-icons/ai";
@@ -87,6 +88,11 @@ class RestaurantShow extends React.Component {
                 </div>
               </div>
               <div className="right-bar">
+                <div>
+                  <ReservationFormContainer
+                    restaurant_id={this.props.match.params.restaurantId}
+                  />
+                </div>
                 <div className="attri">
                   <div className="attri-name">
                     <GrLocation className="icon" />

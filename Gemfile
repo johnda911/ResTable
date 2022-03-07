@@ -17,6 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 gem "aws-sdk-s3"
 # for the use of aws s3 service
+# gem "font-awesome-rails"
+# to add fontawesome
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

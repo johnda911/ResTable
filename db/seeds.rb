@@ -171,7 +171,7 @@ restaurant6.photo.attach(io: file6, filename: '6.jpg')
 restaurant7 = Restaurant.create!(
   name: RESTAURANT_META[7][:name],
   address: RESTAURANT_META[7][:address],
-  description: "Welcome to #{}, it is named after a flowering plant famed in Mexico for its use in love potions. We hope that when you dine with us you too will fall under the spell of chef Medina's creative cooking, which incorporates seasonal and natural ingredients and more than a dozen types of chilies. Along with the authentic Mexican menu and an exceptional tequila list, we offer elegant decorative elements imported from Mexico. We look forward to seeing you soon.",
+  description: "Welcome to #{RESTAURANT_META[7][:name]}, it is named after a flowering plant famed in Mexico for its use in love potions. We hope that when you dine with us you too will fall under the spell of chef Medina's creative cooking, which incorporates seasonal and natural ingredients and more than a dozen types of chilies. Along with the authentic Mexican menu and an exceptional tequila list, we offer elegant decorative elements imported from Mexico. We look forward to seeing you soon.",
   phone: "(243)977-6297",
   cuisine: "#{CUISINE.sample}", 
   expense: 4,

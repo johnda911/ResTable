@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 
 class RestaurantIndexItem extends React.Component {
   // handleClick() => {
-
   // }
   render() {
     const { restaurant } = this.props;

@@ -62,7 +62,7 @@ input {
     // justify-content: center;
     flex-direction: column;
     width: 40vh;
-    height: 40vh;
+    height: 42vh;
     justify-content: flex-start;
     // align-items: center;
     padding: 10px;
@@ -80,12 +80,12 @@ input {
       height: 40px;
       margin-top: 10px;
       padding: 0px;
-      background-color: #247f9e;
+      background-color: var(--red);
       // margin-right: 10px;
-      border: 0.0625rem solid #247f9e;
+      border: 0.0625rem solid rgb(218, 31, 31);
       &:hover {
         cursor: pointer;
-        background-color: #175b72;
+        background-color: rgb(218, 31, 31);
       }
     }
     .login-link-container {
@@ -101,7 +101,7 @@ input {
       font-size: 16px;
       font-weight: 400;
       text-align: center;
-      color: red;
+      color: var(--red);
     }
     .session-reminder {
       font-size: 18px;
@@ -124,7 +124,7 @@ input {
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.541);
   z-index: 10;
 }
 
