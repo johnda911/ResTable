@@ -8,6 +8,10 @@ import {
 } from "../../actions/reservation_actions";
 import { FcApproval } from "react-icons/fc";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
+import { AiOutlineCalendar } from "react-icons/ai";
+import { FaMapMarkedAlt } from "react-icons/fa";
+import { MdOutlineMenuBook } from "react-icons/md";
 
 class ReservationConfirmation extends React.Component {
   constructor(props) {
@@ -58,8 +62,14 @@ class ReservationConfirmation extends React.Component {
                     </div>
                   )}
                 </div>
-                <div>{reservation.party_size}(Standard seating)</div>
-                <div>{reservation.date}</div>
+                <div>
+                  <CgProfile />
+                  {reservation.party_size}(Standard seating)
+                </div>
+                <div>
+                  <AiOutlineCalendar />
+                  {reservation.date}
+                </div>
                 <button className="cancel-btn" onClick={this.handleCancel}>
                   Cancel the reservation
                 </button>
@@ -67,11 +77,18 @@ class ReservationConfirmation extends React.Component {
             </div>
             <div className="mid-session">
               <div className="halo-box">
-                <div className="black-char">Browse menu</div>
+                <div className="black-char">
+                  {" "}
+                  <FaMapMarkedAlt />
+                  Browse menu
+                </div>
                 <div className="grey-res">Restaurant's Profile</div>
               </div>
               <div className="halo-box">
-                <div className="black-char">Get directions</div>
+                <div className="black-char">
+                  <MdOutlineMenuBook />
+                  Get directions
+                </div>
               </div>
             </div>
             {/* <div className="lower-session">
