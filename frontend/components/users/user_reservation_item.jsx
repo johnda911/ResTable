@@ -26,17 +26,29 @@ class UserReservationItem extends React.Component {
       );
     }
     return (
-      <div className="top-session">
+      <div className="reservation-item">
         <div>
-          <img className="small-photo" src={resaurantUrl} />
+          <img className="small-pic" src={resaurantUrl} />
         </div>
-        <div className="info-list">
-          <div className="myreservation-title">{restaurantName}</div>
+        <div className="res-info">
+          <div id="myreservation-title">{restaurantName}</div>
           <div>{reservation.date}</div>
-          <div>Table for {reservation.party_size} people</div>
-          <div onClick={() => this.handleView(reservation.id)}>View</div>
-          <div onClick={() => this.handleCancelReservation(reservation.id)}>
-            Cancel
+          <div id="reservation-size">
+            Table for {reservation.party_size} people
+          </div>
+          <div className="reservation-func-bar">
+            <div
+              className="view-btn"
+              onClick={() => this.handleView(reservation.id)}
+            >
+              View
+            </div>
+            <div
+              className="view-btn"
+              onClick={() => this.handleCancelReservation(reservation.id)}
+            >
+              Cancel
+            </div>
           </div>
         </div>
       </div>

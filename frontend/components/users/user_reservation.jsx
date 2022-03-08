@@ -35,11 +35,17 @@ class ReservationIndex extends React.Component {
       <>
         {user && restaurants && (
           <div className="profile-container">
-            <div className="top-greeting-session">{user.username}</div>
+            <div className="top-greeting-session">
+              <div className="username">{user.username}</div>
+            </div>
             <div className="main-profile-session">
-              <div className="left-nav-session">Reservations</div>
+              <div className="left-nav-session">
+                <div className="reservations"> Reservations</div>
+                <div className="saved-restaurants">Saved Restaurants</div>
+                <div className="account-details">Account Details</div>
+              </div>
               <div className="right-content-session">
-                <div>
+                <div className="upcoming-reservations">
                   <h2>Upcoming Reservations</h2>
                 </div>
                 <div className="reservation-profile-list">
