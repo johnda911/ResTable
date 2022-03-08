@@ -18,12 +18,14 @@ import { MdOutlineMenuBook } from "react-icons/md";
 class ReservationConfirmation extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
     let reservation = {
       cancelled: false,
       ...this.props.reservation,
     };
     this.state = { ...reservation };
     this.handleCancel = this.handleCancel.bind(this);
+    this.handleProfile = this.handleProfile.bind(this);
   }
   componentDidMount() {
     this.props.requestReservation(this.props.match.params.reservationId);
@@ -33,7 +35,11 @@ class ReservationConfirmation extends React.Component {
     this.setState({ cancelled: true });
     this.props.deleteReservation(this.props.reservation.id);
   }
-  // handleProfile() {}
+  handleProfile() {
+    this.props.history.push(
+      `/user/${this.props.reservation.user_id}/reservations`
+    );
+  }
 
   render() {
     const { reservation } = this.props;
@@ -91,11 +97,14 @@ class ReservationConfirmation extends React.Component {
                 ) : (
                   <span>
                     <button className="cancel-btn" onClick={this.handleCancel}>
-                      Cancel the reservation
+                      Cancel
                     </button>
-                    {/* <button className="cancel-btn" onClick={this.handleProfile}>
+                    <button
+                      className="cancel-btn view-botton"
+                      onClick={this.handleProfile}
+                    >
                       My Reservations
-                    </button> */}
+                    </button>
                   </span>
                 )}
               </div>

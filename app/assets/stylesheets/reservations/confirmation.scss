@@ -16,6 +16,7 @@
   border: 1px solid lightgrey;
   width: 65%;
   padding: 40px;
+  min-width: 720px;
 }
 
 .top-session {
@@ -77,11 +78,17 @@
   border: none;
   font-size: 18px;
   font-weight: 400;
-  // border-right: 2px solid lightgrey;
   &:hover {
     cursor: pointer;
+    color: rgb(156, 1, 1);
   }
 }
+.view-botton {
+  border-left: 2px solid lightgrey;
+  margin-left: 8px;
+  width: 160px;
+}
+
 .homepg-btn {
   background-color: transparent;
   color: var(--red);
