@@ -1,2 +1,26 @@
-.myreservation-title {
+.profile-container {
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-greeting-session {
+  background-color: yellow;
+  width: 100%;
+}
+
+.main-profile-session {
+  background-color: pink;
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+}
+
+.left-nav-session {
+  background-color: orange;
+}
+
+.right-content-session {
+  background-color: aqua;
 }

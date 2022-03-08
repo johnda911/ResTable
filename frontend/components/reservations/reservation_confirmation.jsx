@@ -91,7 +91,7 @@ class ReservationConfirmation extends React.Component {
                 ) : (
                   <span>
                     <button className="cancel-btn" onClick={this.handleCancel}>
-                      Cancel
+                      Cancel the reservation
                     </button>
                     {/* <button className="cancel-btn" onClick={this.handleProfile}>
                       My Reservations
