@@ -5,15 +5,33 @@ import UserReservationItem from "./user_reservation_item";
 class ReservationIndex extends React.Component {
   componentDidMount() {
     this.props.requestUser(this.props.match.params.userId);
+    this.props.requestRestaurants();
+  }
+
+  getRestaurantUrl(restaurantId) {
+    for (const r of this.props.restaurants) {
+      if (r.id === restaurantId) {
+        // console.log(r.restaurantPhotoURL);
+        return r.restaurantPhotoURL;
+      }
+    }
+  }
+
+  getRestaurantName(restaurantId) {
+    for (const r of this.props.restaurants) {
+      if (r.id === restaurantId) {
+        return r.name;
+      }
+    }
   }
 
   render() {
-    const { user } = this.props;
+    const { user, restaurants } = this.props;
     // const reservations = user.userReservations;
     // console.log(this.props);
     return (
       <>
-        {user && (
+        {user && restaurants && (
           <div className="reservation-index-container">
             <div>
               <h2>Upcoming Reservations</h2>
@@ -23,6 +41,12 @@ class ReservationIndex extends React.Component {
                 return (
                   <UserReservationItem
                     reservation={reservation}
+                    resaurantUrl={this.getRestaurantUrl(
+                      reservation.restaurant_id
+                    )}
+                    restaurantName={this.getRestaurantName(
+                      reservation.restaurant_id
+                    )}
                     key={reservation.id}
                   />
                 );
