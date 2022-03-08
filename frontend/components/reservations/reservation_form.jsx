@@ -27,9 +27,6 @@ export default class ReservationForm extends React.Component {
   handlePartyChange = (event) => {
     this.setState({ partySize: event.target.value });
   };
-  //   handleInput(field) {
-  //     return (e) => this.setState({ [field]: e.currentTarget.value });
-  //   }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -41,10 +38,9 @@ export default class ReservationForm extends React.Component {
     const reservationDate = this.state.date;
     reservationDate.setHours(hour);
     reservationDate.setMinutes(miniute);
-    console.log(reservationDate); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
-    console.log(this.state.date); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time
-    console.log(this.state.time); //18:30:00
-
+    // console.log(reservationDate); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
+    // console.log(this.state.date); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time
+    // console.log(this.state.time); //18:30:00
     const partySize = this.state.partySize;
 
     ReservationAPIUtil.createReservation({
@@ -53,6 +49,7 @@ export default class ReservationForm extends React.Component {
       time: reservationDate,
       party_size: partySize,
       phone: "(123)-456-7890",
+      user_id: currentUser.id,
     }).then((reservation) => {
       this.props.history.push(`/reservation/${reservation.id}/confirmation`);
     });

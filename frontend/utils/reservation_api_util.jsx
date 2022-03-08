@@ -4,6 +4,10 @@ export const fetchReservation = (reservationId) =>
   $.ajax({
     url: `/api/reservations/${reservationId}`,
   });
+// export const fetchReservations = () =>
+//   $.ajax({
+//     url: `/api/reservations`,
+//   });
 export const createReservation = (reservation) =>
   $.ajax({
     url: "/api/reservations",

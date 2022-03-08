@@ -5,7 +5,7 @@ class Reservation < ApplicationRecord
     #     validates :first_name, :last_name, :email, presence: true
     # end
 
-    # belongs_to :user
+    belongs_to :user
     belongs_to :restaurant
 
 end

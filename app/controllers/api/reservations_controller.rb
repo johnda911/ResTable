@@ -1,7 +1,12 @@
 class Api::ReservationsController < ApplicationController
     skip_before_action :verify_authenticity_token
-    before_action :require_logged_in!, only:[:create]
+    before_action :require_logged_in!, only:[:create, :show]
 
+    def index 
+        @reservations = Reservation.all;
+        render :index
+    end
+    
     def create
         @reservation = Reservation.new(reservation_params)
         if @reservation.save

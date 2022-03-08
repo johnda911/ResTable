@@ -1,4 +1,5 @@
 import React from "react";
+import DropdownContainer from "./dropdown";
 import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineCalendar } from "react-icons/ai";
@@ -8,14 +9,8 @@ export default ({ currentUser, logout, login, openModal }) => {
   const handleDemoUser = () => login();
   const display = currentUser ? (
     <>
-      {/* <div className="profile-dropdown">
-        <h3>Hello, {currentUser.username}!</h3>
-        <button onClick={logout}>Sign out</button>
-      </div> */}
       <div className="icon-group">
-        <button id="icon-button">
-          <CgProfile className="ico" />
-        </button>
+        <DropdownContainer currentUser={currentUser} logout={logout} />
         <button id="icon-button">
           <AiOutlineCalendar className="ico" />
         </button>
@@ -25,7 +20,7 @@ export default ({ currentUser, logout, login, openModal }) => {
       </div>
     </>
   ) : (
-    <div className="button-group">
+    <div className="icon-group">
       <button
         className="button signup-button"
         onClick={() => openModal("signup")}

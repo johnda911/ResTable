@@ -7,6 +7,7 @@ import NavBarContainer from "./nav_bar/nav_bar_container";
 import RestaurantShowContainer from "./restaurants/show/restaurant_show_container";
 import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 import ReservationConfirmation from "./reservations/reservation_confirmation";
+import UserReservationsContainer from "./users/user_reservation_container";
 
 const App = () => (
   <div className="app">
@@ -27,6 +28,12 @@ const App = () => (
           path="/reservation/:reservationId/confirmation"
           component={ReservationConfirmation}
         />
+        <Route
+          exact
+          path="/user/:userId/reservations"
+          component={UserReservationsContainer}
+        />
+
         <Redirect to="/" />
       </Switch>
     </div>

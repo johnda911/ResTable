@@ -85,6 +85,17 @@
     cursor: pointer;
   }
 }
+.homepg-btn {
+  background-color: transparent;
+  color: var(--red);
+  border: none;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 .mid-session {
   display: flex;

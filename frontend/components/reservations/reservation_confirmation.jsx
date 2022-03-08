@@ -63,7 +63,7 @@ class ReservationConfirmation extends React.Component {
                 </div>
                 <div>
                   {this.state.cancelled ? (
-                    <div>
+                    <div className="res-confirmed">
                       <AiFillCloseCircle className="uncheck-icon" /> Reservation
                       cancelled
                     </div>
@@ -85,7 +85,9 @@ class ReservationConfirmation extends React.Component {
                   </span>
                 </div>
                 {this.state.cancelled ? (
-                  <Link to="/">Go back to homepage</Link>
+                  <Link className="homepg-btn" to="/">
+                    Go back to homepage
+                  </Link>
                 ) : (
                   <span>
                     <button className="cancel-btn" onClick={this.handleCancel}>
@@ -128,8 +130,7 @@ class ReservationConfirmation extends React.Component {
             )}
             {/* <div className="lower-session">
               <div>Who's going?</div>
-              <div>{currentUser.username}</div>
-              <div>Invite your friends</div>
+              <div>{reservation.userName}</div>
             </div> */}
           </div>
         )}
