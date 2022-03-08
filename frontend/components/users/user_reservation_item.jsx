@@ -18,7 +18,9 @@ class UserReservationItem extends React.Component {
           <img className="small-photo" src={reservation.restaurantPhotoURL} />
         </div>
         <div className="info-list">
-          <div className="confirmation-title">{reservation.restaurantName}</div>
+          <div className="myreservation-title">
+            {reservation.restaurantName}
+          </div>
           <div>{reservation.date}</div>
           <div>Table for {reservation.party_size} people</div>
           <div>View</div>

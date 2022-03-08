@@ -1,8 +1,9 @@
 import * as React from "react";
 import Popover from "@mui/material/Popover";
 import { CgProfile } from "react-icons/cg";
+import { withRouter } from "react-router-dom";
 
-export default function Dropdown(props) {
+const Dropdown = withRouter(({ history, ...props }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -11,6 +12,11 @@ export default function Dropdown(props) {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleDiningHistory = () => {
+    handleClose();
+    history.push(`/user/${props.currentUser.id}/reservations`);
   };
 
   const open = Boolean(anchorEl);
@@ -36,7 +42,9 @@ export default function Dropdown(props) {
             Hello, {props.currentUser ? props.currentUser.username : ""}!
           </div>
 
-          <div className="action-button">My Dining History</div>
+          <div onClick={handleDiningHistory} className="action-button">
+            My Dining History
+          </div>
           <div
             className="action-button"
             id="signout-btn"
@@ -48,4 +56,6 @@ export default function Dropdown(props) {
       </Popover>
     </div>
   );
-}
+});
+
+export default Dropdown;
