@@ -7,7 +7,7 @@ class ReservationIndex extends React.Component {
   componentDidMount() {
     this.props.requestUser(this.props.match.params.userId);
     this.props.requestRestaurants();
-    console.log(this.props);
+    // console.log(this.props);
   }
 
   getRestaurantUrl(restaurantId) {
