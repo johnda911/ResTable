@@ -316,7 +316,7 @@ DEPENDENCIES
   shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
-  terser
+  terser (~> 1.1.1)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
