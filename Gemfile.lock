@@ -259,6 +259,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    terser (1.1.8)
+      execjs (>= 0.3.0, < 3)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -314,6 +316,7 @@ DEPENDENCIES
   shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
+  terser
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
