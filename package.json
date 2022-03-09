@@ -9,7 +9,7 @@
     "postinstall": "webpack"
   },
   "engines": {
-    "node": "17.6.0",
+    "node": "12.5.0",
     "npm": "6.9.0"
   },
   "dependencies": {
