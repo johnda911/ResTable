@@ -12,7 +12,7 @@ class Api::ReservationsController < ApplicationController
         if @reservation.save
             render "api/reservations/show"
         else
-            render json: @reservation.errors.full_messages, status: 422
+            render json: ["Please signin to make a reservation"], status: 422
         end
     end
 

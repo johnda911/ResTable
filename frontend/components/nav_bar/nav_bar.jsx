@@ -6,6 +6,9 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 
 export default ({ currentUser, logout, login, openModal }) => {
+  console.log("render nav bar...");
+
+  console.log(currentUser);
   const handleDemoUser = () => login();
   const display = currentUser ? (
     <>

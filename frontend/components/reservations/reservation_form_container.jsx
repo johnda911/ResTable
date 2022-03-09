@@ -16,6 +16,7 @@ const mSTP = (state, ownProps) => {
       phone: null,
       restaurant_id: ownProps.restaurant_id,
     },
+    currentUser: state.session.currentUser,
   };
 };
 

@@ -17,7 +17,11 @@ import { HiTrendingUp } from "react-icons/hi";
 export default class ReservationForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.reservation;
+    this.state = {
+      ...this.props.reservation,
+      currentUser: this.props.currentUser,
+    };
+    console.log(this.state);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -50,10 +54,26 @@ export default class ReservationForm extends React.Component {
       party_size: partySize,
       phone: "(123)-456-7890",
       user_id: currentUser.id,
+      // user_id: 1,
     }).then((reservation) => {
       this.props.history.push(`/reservation/${reservation.id}/confirmation`);
     });
+    // this.props.createReservation({
+    //   restaurant_id: this.props.restaurant_id,
+    //   date: reservationDate,
+    //   time: reservationDate,
+    //   party_size: partySize,
+    //   phone: "(123)-456-7890",
+    //   user_id: currentUser.id,
+    //   // user_id: 1,
+    // });
   }
+
+  // componentWillUnmount() {
+  //   this.props.history.push(
+  //     `/reservation/${this.props.reservation.id}/confirmation`
+  //   );
+  // }
 
   render() {
     return (

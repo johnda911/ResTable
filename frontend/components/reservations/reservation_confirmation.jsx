@@ -18,7 +18,7 @@ import { MdOutlineMenuBook } from "react-icons/md";
 class ReservationConfirmation extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
+    // console.log(this.props);
     let reservation = {
       cancelled: false,
       ...this.props.reservation,
