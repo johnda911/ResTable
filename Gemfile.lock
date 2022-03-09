@@ -280,7 +280,9 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  x86_64-darwin
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   active_model_serializers
