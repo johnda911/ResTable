@@ -3,6 +3,7 @@ import * as RestaurantAPIUtil from '../utils/restaurant_api_util';
 export const RECEIVE_RESTAURANTS = 'RECEIVE_RESTAURANTS';
 export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANT';
 
+
 const receiveRestaurants = restaurants => ({
     type: RECEIVE_RESTAURANTS,
     restaurants

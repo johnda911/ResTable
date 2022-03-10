@@ -55,11 +55,11 @@ class RestaurantShow extends React.Component {
                     <span>{restaurant.cuisine}</span>
                   </div>
                 </div>
-                <div class="top-tag">
-                  <div class="tag-title">Top Tags:</div>
-                  <div class="tag-badge">Special Occasion</div>
-                  <div class="tag-badge">Good For A Date</div>
-                  <div class="tag-badge">Good For Anniversaries</div>
+                <div className="top-tag">
+                  <div className="tag-title">Top Tags:</div>
+                  <div className="tag-badge">Special Occasion</div>
+                  <div className="tag-badge">Good For A Date</div>
+                  <div className="tag-badge">Good For Anniversaries</div>
                 </div>
                 <div className="rest-description">{restaurant.description}</div>
 

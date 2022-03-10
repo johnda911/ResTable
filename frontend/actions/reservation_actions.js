@@ -30,7 +30,8 @@ export const requestReservation = (reservationId) => dispatch => {
 
 export const createReservation = (reservation) => dispatch => {
     return ReservationAPIUtil.createReservation(reservation)
-        .then(reservation => dispatch(receiveReservation(reservation)));
+        .then(reservation => dispatch(receiveReservation(reservation))
+        );
 }
 
 export const deleteReservation = (reservationId) => dispatch => {

@@ -29,27 +29,34 @@
     .header-nav-left {
       display: flex;
       flex-direction: row;
-      #restable-logo {
-        margin-top: -10px;
-        margin-left: 3px;
-        width: 60px;
-        height: 60px;
-      }
+    }
 
-      h2 {
-        font-size: 28px;
-        font-weight: 500;
-        margin-top: 5px;
-      }
+    #restable-logo {
+      margin-top: -18px;
+      margin-left: 3px;
+      width: 80px;
+      height: 80px;
+    }
+
+    .restable-project-name {
+      text-decoration: none;
+    }
+    #restable-title {
+      font-size: 28px;
+      font-weight: 500;
+      margin-top: 5px;
+      text-decoration: none;
+      color: black;
+      padding-left: 20px;
     }
 
     .header-nav-right {
-      width: 100%;
+      width: 80%;
       .button-group {
         display: flex;
         flex-direction: row;
         #search-button {
-          width: 20px;
+          width: 15px;
           background-color: transparent;
           border: none;
           margin-left: 20px;

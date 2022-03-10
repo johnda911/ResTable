@@ -15,6 +15,13 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { MdOutlineMenuBook } from "react-icons/md";
 
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+
 class ReservationConfirmation extends React.Component {
   constructor(props) {
     super(props);
@@ -23,15 +30,27 @@ class ReservationConfirmation extends React.Component {
       cancelled: false,
       ...this.props.reservation,
     };
-    this.state = { ...reservation };
+    this.state = { ...reservation, open: false };
     this.handleCancel = this.handleCancel.bind(this);
     this.handleProfile = this.handleProfile.bind(this);
+    this.handleAlertClose = this.handleAlertClose.bind(this);
+    this.handleAlertOpen = this.handleAlertOpen.bind(this);
   }
+
   componentDidMount() {
     this.props.requestReservation(this.props.match.params.reservationId);
   }
 
+  handleAlertClose() {
+    this.setState({ open: false });
+  }
+
+  handleAlertOpen() {
+    this.setState({ open: true });
+  }
+
   handleCancel() {
+    this.handleAlertClose();
     this.setState({ cancelled: true });
     this.props.deleteReservation(this.props.reservation.id);
   }
@@ -50,10 +69,64 @@ class ReservationConfirmation extends React.Component {
           timeZone: "America/New_York",
         }
       );
+      // let myResName = reservation.restaurantName;
+      // let myParty = reservation.party_size;
+      // let myDate = reservation.date;
     }
 
     return (
       <div className="confirmation-box">
+        {/* library used to make an alert */}
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleAlertClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <div className="question-alert" id="alert-dialog-title">
+            {"Are you sure you want to cancel this reservation?"}
+          </div>
+          <DialogContent>
+            {/* <DialogContentText id="alert-dialog-description"> */}
+            {/* {myResName} */}
+
+            {reservation && (
+              <div>
+                <div className="confirmation-title">
+                  {reservation.restaurantName}
+                </div>
+                <div className="confirm-info-div">
+                  <span className="confirmation-info">
+                    <CgProfile className="calender-icon" />
+                    {reservation.party_size}(Standard seating )
+                  </span>
+                  <span className="confirmation-info">
+                    <AiOutlineCalendar className="calender-icon" />
+                    {reservation.date}
+                  </span>
+                </div>
+              </div>
+            )}
+            {/* </DialogContentText> */}
+          </DialogContent>
+          <DialogActions>
+            <Button
+              className="nevermind"
+              color="error"
+              onClick={this.handleAlertClose}
+            >
+              Nevermind
+            </Button>
+            <Button
+              className="confirm-cancel"
+              variant="contained"
+              color="error"
+              onClick={this.handleCancel}
+            >
+              Confirm cancellation
+            </Button>
+          </DialogActions>
+        </Dialog>
         {reservation && (
           <div className="confirmation-container">
             <div className="top-session">
@@ -91,12 +164,18 @@ class ReservationConfirmation extends React.Component {
                   </span>
                 </div>
                 {this.state.cancelled ? (
-                  <Link className="homepg-btn" to="/">
-                    Go back to homepage
+                  <Link
+                    className="homepg-btn"
+                    to={`/user/${this.props.currentUser.id}/reservations`}
+                  >
+                    Go back to My Reservations
                   </Link>
                 ) : (
                   <span>
-                    <button className="cancel-btn" onClick={this.handleCancel}>
+                    <button
+                      className="cancel-btn"
+                      onClick={this.handleAlertOpen}
+                    >
                       Cancel
                     </button>
                     <button
@@ -153,6 +232,7 @@ const mSTP = (state, ownProps) => {
     state.entities.reservations[ownProps.match.params.reservationId];
   return {
     reservation,
+    currentUser: state.session.currentUser,
   };
 };
 

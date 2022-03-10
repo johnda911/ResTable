@@ -6,14 +6,16 @@ import {
   deleteReservation,
 } from "../../actions/reservation_actions";
 import { withRouter } from "react-router-dom";
+import { login, CLEAR_SESSION_ERRORS } from "../../actions/session";
 
 const mSTP = (state, ownProps) => {
+  // console.log(state.session.currentUser);
   return {
     reservation: {
-      date: null,
-      time: null,
-      partySize: null,
-      phone: null,
+      date: "",
+      time: "",
+      partySize: "",
+      phone: "",
       restaurant_id: ownProps.restaurant_id,
     },
     currentUser: state.session.currentUser,
@@ -29,6 +31,13 @@ const mDTP = (dispatch) => {
     },
     deleteReservation: (reservationId) =>
       dispatch(deleteReservation(reservationId)),
+    login: () =>
+      dispatch(
+        login({
+          email: "demouser@gmail.com",
+          password: "123456",
+        })
+      ),
   };
 };
 

@@ -6,9 +6,6 @@ import { AiOutlineCalendar } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 
 export default ({ currentUser, logout, login, openModal }) => {
-  console.log("render nav bar...");
-
-  console.log(currentUser);
   const handleDemoUser = () => login();
   const display = currentUser ? (
     <>
@@ -63,7 +60,9 @@ export default ({ currentUser, logout, login, openModal }) => {
           <Link className="button" to="/">
             <img id="restable-logo" src="images/restable_logo.png" />
           </Link>
-          <h2>ResTable</h2>
+          <Link className="restable-project-name" to="/">
+            <div id="restable-title">ResTable</div>
+          </Link>
         </div>
         <div className="header-nav-right">{display}</div>
       </nav>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import { BsCurrencyDollar } from "react-icons/bs";
 
 class RestaurantIndexItem extends React.Component {
   // handleClick() => {
@@ -16,7 +17,7 @@ class RestaurantIndexItem extends React.Component {
         <span className="res-profile-img">{restaurant.photo}</span>
         <span className="res-profile-name">{restaurant.name}</span>
         <span className="res-profile-info">
-          {restaurant.cuisine} · {restaurant.expense} ·{" "}
+          {restaurant.cuisine} · <ExpenseRange expense={restaurant.expense} /> ·{" "}
           {restaurant.neighborhood}
         </span>
         <button className="res-profile-btn">Reserve</button>
@@ -25,3 +26,19 @@ class RestaurantIndexItem extends React.Component {
   }
 }
 export default RestaurantIndexItem;
+
+const ExpenseRange = (props) => {
+  const expenseLevel = props.expense;
+  const remainingExpense = 4 - expenseLevel;
+
+  return (
+    <span className="four-dollar">
+      {[...Array(expenseLevel)].map(() => (
+        <BsCurrencyDollar className="black-dollar" key={Math.random()} />
+      ))}
+      {[...Array(remainingExpense)].map(() => (
+        <BsCurrencyDollar className="grey-dollar" key={Math.random()} />
+      ))}
+    </span>
+  );
+};

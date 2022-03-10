@@ -8,9 +8,11 @@ const Rating = (props) => {
   return (
     <div>
       {[...Array(Math.floor(rating))].map(() => (
-        <BsStarFill className="rating-star-icon" />
+        <BsStarFill className="rating-star-icon" key={Math.random()} />
       ))}
-      {hasHalf && <BsStarHalf className="rating-star-icon" />}
+      {hasHalf && (
+        <BsStarHalf className="rating-star-icon" key={Math.random()} />
+      )}
       <span>{rating}</span>
     </div>
   );

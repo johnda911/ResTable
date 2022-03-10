@@ -28,6 +28,7 @@
   background-size: cover;
   background-position: 50%;
   min-height: 25rem;
+  height: 400px;
   position: relative;
   background-image: linear-gradient(
       80deg,
@@ -45,6 +46,6 @@
     line-height: 56px;
     text-align: center;
     text-size-adjust: 100%;
-    padding-top: 120px; // to be adjusted once complete the search component
+    padding-top: 70px;
   }
 }
