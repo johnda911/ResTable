@@ -20,6 +20,10 @@ class RestaurantShow extends React.Component {
     this.props.requestRestaurant(this.props.match.params.restaurantId);
   }
 
+  selectRandomRating() {
+    return Math.random() * 5.0;
+  }
+
   render() {
     const { restaurant } = this.props;
     return (
@@ -36,8 +40,7 @@ class RestaurantShow extends React.Component {
               <div className="left-bar">
                 <div className="navigation">
                   <div id="overview">Overview</div>
-                  <div>Experiences</div>
-                  <div>Offers</div>
+                  <div>Safety precautions</div>
                   <div>Popular dishes</div>
                   <div>Menu</div>
                   <div>Reviews</div>
@@ -45,7 +48,7 @@ class RestaurantShow extends React.Component {
                 <h2 className="rest-name">{restaurant.name}</h2>
                 <div className="rest-meta-data">
                   <div className="short-div">
-                    <Rating rating="4.4" />
+                    <Rating rating={this.selectRandomRating()} />
                   </div>
                   <div className="short-div">
                     <DollorRange expense={restaurant.expense} />

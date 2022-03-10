@@ -105,8 +105,12 @@ export default ({ reservation, currentUser, login, history }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDemoLogin}>Use Demo User</Button>
-          <Button onClick={handleAlertClose}>Close</Button>
+          <Button variant="contained" color="error" onClick={handleDemoLogin}>
+            Use Demo User
+          </Button>
+          <Button color="error" onClick={handleAlertClose}>
+            Close
+          </Button>
           {/* <Button onClick={this.handleDemoLogin} autoFocus>
               Close
             </Button> */}

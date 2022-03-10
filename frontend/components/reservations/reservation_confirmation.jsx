@@ -83,16 +83,15 @@ class ReservationConfirmation extends React.Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <div className="question-alert" id="alert-dialog-title">
+          {/* <div className="question-alert" id="alert-dialog-title"> */}
+          <DialogTitle id="alert-dialog-title">
             {"Are you sure you want to cancel this reservation?"}
-          </div>
+          </DialogTitle>
+          {/* </div> */}
           <DialogContent>
-            {/* <DialogContentText id="alert-dialog-description"> */}
-            {/* {myResName} */}
-
             {reservation && (
               <div>
-                <div className="confirmation-title">
+                <div className="confirm-title">
                   {reservation.restaurantName}
                 </div>
                 <div className="confirm-info-div">

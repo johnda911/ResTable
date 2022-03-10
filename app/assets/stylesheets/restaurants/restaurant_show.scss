@@ -77,7 +77,7 @@ $nav-height: 45px;
   &:hover {
     border-bottom: 2px solid var(--red);
     color: var(--red);
-    cursor: pointer;
+    // cursor: pointer;
   }
 }
 #overview {
@@ -155,7 +155,7 @@ $nav-height: 45px;
 }
 
 .short-div {
-  width: 130px;
+  width: 128px;
 }
 
 .top-tag {
@@ -184,7 +184,7 @@ $nav-height: 45px;
     &:hover {
       border-color: var(--red);
       border-width: 2px;
-      cursor: pointer;
+      // cursor: pointer;
     }
   }
 }

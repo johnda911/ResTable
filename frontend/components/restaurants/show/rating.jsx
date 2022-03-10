@@ -5,6 +5,7 @@ import { BsStarHalf } from "react-icons/bs";
 const Rating = (props) => {
   const rating = props.rating;
   const hasHalf = rating - Math.floor(rating) > 0;
+  let roundedRating = Math.round(rating * 10) / 10;
   return (
     <div>
       {[...Array(Math.floor(rating))].map(() => (
@@ -13,7 +14,7 @@ const Rating = (props) => {
       {hasHalf && (
         <BsStarHalf className="rating-star-icon" key={Math.random()} />
       )}
-      <span>{rating}</span>
+      <span>{roundedRating}</span>
     </div>
   );
 };

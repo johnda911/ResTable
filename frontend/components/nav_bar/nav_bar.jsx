@@ -11,7 +11,7 @@ export default ({ currentUser, logout, login, openModal }) => {
     <>
       <div className="icon-group">
         <DropdownContainer currentUser={currentUser} logout={logout} />
-        <button id="icon-button">
+        <button id="calendar-button">
           <AiOutlineCalendar className="ico" />
         </button>
         <button id="search-button">

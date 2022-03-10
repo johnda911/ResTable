@@ -32,10 +32,10 @@
     }
 
     #restable-logo {
-      margin-top: -18px;
-      margin-left: 3px;
-      width: 80px;
-      height: 80px;
+      margin-top: -15px;
+      margin-left: 6px;
+      width: 70px;
+      height: 60px;
     }
 
     .restable-project-name {
@@ -47,7 +47,7 @@
       margin-top: 5px;
       text-decoration: none;
       color: black;
-      padding-left: 20px;
+      padding-left: 30px;
     }
 
     .header-nav-right {
@@ -74,14 +74,22 @@
         justify-content: space-between;
         float: right;
         // height: 60px;
-        &:hover {
-          cursor: pointer;
-        }
+
         #icon-button {
           width: 40px;
           // height: 60px;
           background-color: transparent;
           border: none;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        #calendar-button {
+          width: 40px;
+          // height: 60px;
+          background-color: transparent;
+          border: none;
+          color: rgb(190, 189, 189);
         }
         #search-button {
           width: 40px;
@@ -89,6 +97,7 @@
           border-bottom: none;
           border-top: none;
           border-right: none;
+          color: rgb(190, 189, 189);
           border-left: 1px solid lightgrey;
         }
       }
