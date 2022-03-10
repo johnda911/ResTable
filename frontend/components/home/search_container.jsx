@@ -1,6 +1,5 @@
 import * as React from "react";
 import CuisinesContainer from "./cuisines_container";
-import { BiSearch } from "react-icons/bi";
 import { connect } from "react-redux";
 import { RECEIVE_CUSINE } from "../../actions/search_actions";
 
@@ -24,6 +23,7 @@ class Search extends React.Component {
 
   editSearchTerm = (e) => {
     this.setState({ searchTerm: e.target.value });
+    this.props.receiveCuisine(e.target.value);
   };
 
   dynamicSearch = () => {
@@ -41,9 +41,6 @@ class Search extends React.Component {
     return (
       <div className="search-bar" style={{ textAlign: "center" }}>
         <div className="input-icons">
-          {/* <div className="search-logo">
-          <BiSearch className="ico" />
-        </div> */}
           <i className="fa-solid fa-magnifying-glass fa-xl"></i>
           <input
             className="input-field"
@@ -59,14 +56,13 @@ class Search extends React.Component {
           <CuisinesContainer
             cuisines={this.dynamicSearch()}
             onCuisineSelected={this.onCuisineSelected}
+            searchTerm={this.state.searchTerm}
           />
         )}
       </div>
     );
   }
 }
-
-// export default Search;
 
 const mSTP = (state) => {
   return {

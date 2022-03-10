@@ -70,8 +70,8 @@ export default ({ reservation, currentUser, login, history }) => {
     reservationDate.setHours(hour);
     reservationDate.setMinutes(miniute);
     // console.log(reservationDate); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
-    // console.log(this.state.date); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time
-    // console.log(this.state.time); //18:30:00
+    // console.log(state.date); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
+    // console.log(state.time); //18:30:00
     const partySize = myReservation.partySize;
 
     ReservationAPIUtil.createReservation({

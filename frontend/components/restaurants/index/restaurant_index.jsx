@@ -8,12 +8,26 @@ class RestaurantIndex extends React.Component {
   }
 
   render() {
+    let cuisineChoices = [
+      "american",
+      "italian",
+      "chinese",
+      "mexican",
+      "japanese",
+      "spanish",
+      "pizzeria",
+      "grill",
+      "mediterranean",
+      "steakhouse",
+    ];
     const { restaurants, search } = this.props;
     let filteredRestaurants = restaurants;
-    if (!!search) {
-      filteredRestaurants = restaurants.filter((r) => r.cuisine === search);
+    if (!!search && cuisineChoices.includes(search.toLowerCase())) {
+      filteredRestaurants = restaurants.filter(
+        (r) => r.cuisine.toLowerCase() === search.toLowerCase()
+      );
     }
-    // console.log(this.props);
+
     return (
       <div className="restaurant-index-container">
         <div>

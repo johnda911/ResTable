@@ -69,9 +69,6 @@ class ReservationConfirmation extends React.Component {
           timeZone: "America/New_York",
         }
       );
-      // let myResName = reservation.restaurantName;
-      // let myParty = reservation.party_size;
-      // let myDate = reservation.date;
     }
 
     return (

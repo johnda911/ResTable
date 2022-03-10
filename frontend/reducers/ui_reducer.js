@@ -4,7 +4,6 @@ import ModalReducer from './modal_reducer';
 import searchReducer from './search_reducer';
 
 export default combineReducers({
-    //   filters,
     modal: ModalReducer,
     search: searchReducer,
 });
