@@ -8,6 +8,7 @@ import RestaurantShowContainer from "./restaurants/show/restaurant_show_containe
 import { AuthRoute, ProtectedRoute } from "../utils/route_util";
 import ReservationConfirmation from "./reservations/reservation_confirmation";
 import UserReservationsContainer from "./users/user_reservation_container";
+import Footer from "../components/home/footer";
 
 const App = () => (
   <div className="app">
@@ -33,9 +34,9 @@ const App = () => (
           path="/user/:userId/reservations"
           component={UserReservationsContainer}
         />
-
         <Redirect to="/" />
       </Switch>
+      <Route path={`/`} component={Footer} />
     </div>
   </div>
 );

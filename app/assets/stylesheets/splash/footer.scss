@@ -1,0 +1,91 @@
+// html,
+// body {
+//   height: 100%;
+// }
+
+// #root {
+//   height: 100%;
+// }
+.footer-container {
+  background-color: rgb(38, 38, 53);
+  padding: 40px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 55px;
+  h2 {
+    color: lightgray;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
+#self-portrait {
+  height: 100px;
+  border-radius: 3px;
+}
+
+.footer-col-name {
+  color: lightgray;
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: lightgray;
+  }
+}
+
+.footer-col-item {
+  margin-bottom: 10px;
+}
+
+.compliance {
+  font-size: 13px;
+  padding-left: 166px;
+}
+
+.compliance > ul {
+  display: flex;
+  justify-content: flex-start;
+  color: lightgray;
+}
+
+.compliance > ul > li {
+  margin: 0 20px 10px 0;
+}
+
+.compliance > p {
+  color: rgb(150, 150, 150);
+}
+
+.author-info {
+  display: flex;
+  justify-content: flex-start;
+
+  & > li {
+    margin-left: 30px;
+    color: lightgray;
+  }
+
+  & > li:first-child {
+    margin-left: 0;
+  }
+
+  & a {
+    font-size: 1rem;
+    color: lightgray;
+  }
+
+  & i {
+    margin-right: 5px;
+    font-size: 30px;
+  }
+}

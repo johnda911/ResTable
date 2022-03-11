@@ -44,17 +44,7 @@ export default ({ currentUser, logout, login, openModal }) => {
 
   return (
     <header className="navbar">
-      <div className="grey-bar">
-        <a
-          href="https://www.linkedin.com/in/yuchen-katie-hang-443b27a4/"
-          target="_blank"
-        >
-          <i className="fa-brands fa-linkedin fa-lg"></i>
-        </a>
-        <a href="https://github.com/johnda911" target="_blank">
-          <i className="fa-brands fa-github fa-lg"></i>
-        </a>
-      </div>
+      <div className="grey-bar"></div>
       <nav className="header-nav">
         <div className="header-nav-left">
           <Link className="button" to="/">
