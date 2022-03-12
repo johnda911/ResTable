@@ -7,7 +7,10 @@ ResTable, an OpenTable clone, is an online restaurant-reservation service that a
 
 ## Core Features
 ### Search Restaurants by Cuisine
+
 The searchbar at the top of homepage allows users to search restaurants based on the cuisine type they are interested in. On click of any cuisine from the dropdown menu, or manyally type in the searchbar, the page below will show the filtered result simultaneously. This feature is achieved by using the redux event listeners to rerender the page. The function `editSearchTerm` listens to any input changes users make in the searchbar to make sure the page rerenders whenever the state changes. `dynamicSearch` is responsible for filtering the dropdown list based on user input. `onCuisineSelected` is passed to the child component `Cuisine` to force the whole state change once the click event is triggered.
+
+![ezgif-4-0e2f08d26e](https://user-images.githubusercontent.com/94198079/157999168-d5515574-b770-497b-b26f-63c44009245a.gif)
 
 ```javascript
   editSearchTerm = (e) => {
@@ -32,6 +35,9 @@ Users can make reservations by filling out the reservation form using dropdown m
 
 
 By making an async call as shown below, the app would hold on the the confirmation page until after it makes a post ajax request and returns a new reservatio object as a promise.
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/94198079/157999283-82c4de26-dedf-4b5d-b120-b115fb42420f.gif)
+
 
 ```javascript
 const handleSubmit = (e) => {
