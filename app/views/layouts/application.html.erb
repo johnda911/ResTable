@@ -7,6 +7,17 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    
+
+   <meta property="og:title" content="Restable" />
+     <meta property='og:image' content="<%= image_url('res_demo.png') %>"/>
+     <meta property="og:description"
+       content="A full-stack, single-page web application where users can search restaurants and make reservations."
+     />
+     <meta property="og:url"
+       content="https://restable-fsp.herokuapp.com/#/"
+     />
+
      <% if current_user %>
       <script>
         window.currentUser = { 

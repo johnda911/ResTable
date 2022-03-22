@@ -24,7 +24,7 @@ demoUser = User.create!(username: 'Demo User', email: 'demouser@gmail.com', pass
 CUISINE = %w(American Italian Chinese Mexican Japanese Spanish Pizzeria Grill Mediterranean Steakhouse)
 PAYMENT = %w(AMEX Discover MasterCard Visa Vemo PayPal Stripe)
 DRESSCODE = ["Business Casual", "Smart Casual", "Casual Dress"]
-NEIGHBOR = ["Tri-State Area", "Astoria", "Chelsea", "Columbus Circle", "Harlem", "Hudson Yards", "Kips Bay", "SoHo", "Long Island City", "NoMad", "Downtown Brooklyn", "DUMBO", "Williamsburg", "Upper East Side" ]
+NEIGHBOR = ["Astoria", "Chelsea", "Columbus Circle", "Harlem", "Hudson Yards", "Kips Bay", "SoHo", "Long Island City", "NoMad", "DUMBO", "Williamsburg", "Upper East Side" ]
 DININGSTYLE = ["Fine Dining", "Casual Dining", "Casual Elegant"]
 RESTAURANT_META = [
     {
