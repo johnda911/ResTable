@@ -44,7 +44,6 @@ export default ({ currentUser, logout, login, openModal }) => {
 
   return (
     <header className="navbar">
-      <div className="grey-bar"></div>
       <nav className="header-nav">
         <div className="header-nav-left">
           <Link className="button" to="/">

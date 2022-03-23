@@ -52,6 +52,11 @@ const Footer = () => {
                 <i className="fa-brands fa-github fa-lg"></i>
               </a>
             </li>
+            <li>
+              <a href="https://angel.co/u/katie-yuchen-hang" target="_blank">
+                <i className="fa-brands fa-angellist"></i>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

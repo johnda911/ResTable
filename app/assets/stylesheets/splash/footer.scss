@@ -46,6 +46,11 @@
 .footer-col-item {
   margin-bottom: 10px;
 }
+.footer-col-item {
+  :hover {
+    color: orange;
+  }
+}
 
 .compliance {
   font-size: 13px;
@@ -73,6 +78,9 @@
   & > li {
     margin-left: 30px;
     color: lightgray;
+    :hover {
+      color: orange;
+    }
   }
 
   & > li:first-child {
