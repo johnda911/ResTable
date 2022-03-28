@@ -20,8 +20,6 @@ class Login extends React.Component {
     e.preventDefault();
     const formUser = Object.assign({}, this.state);
     this.props.processForm(formUser).then(this.props.closeModal);
-    // to be commented in once complete the restaurants routes
-    // .then(() => this.props.history.push("/restaurants"));
   }
 
   openSignUpModal(e) {
@@ -51,27 +49,27 @@ class Login extends React.Component {
       <div className="session-form">
         <form className="session-form-box">
           <div className="session-reminder">
-            Welcome back to ResTable!
-            <br />
+            {/* Welcome back to ResTable! */}
+            {/* <br /> */}
             Log In
             {this.renderErrors()}
           </div>
           <br />
           <label>
-            Your email:
             <br />
             <input
               type="text"
+              placeholder="Your email"
               value={this.state.email}
               onChange={this.handleInput("email")}
               className="login-input"
             />
           </label>
           <label>
-            Your password:
             <br />
             <input
               type="password"
+              placeholder="Your password"
               value={this.state.password}
               onChange={this.handleInput("password")}
               className="login-input"
@@ -80,9 +78,14 @@ class Login extends React.Component {
             <button className="login-button" onClick={this.handleSubmit}>
               Sign in
             </button>
-            <p>New to ResTable?</p>
-            <div className="login-link-container">
-              <a onClick={this.openSignUpModal}>Sign up</a>
+            <div className="session-message">New to ResTable?</div>
+            <div>
+              <button
+                className="login-link-container"
+                onClick={this.openSignUpModal}
+              >
+                Sign up
+              </button>
             </div>
           </label>
         </form>

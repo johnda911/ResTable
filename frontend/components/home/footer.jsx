@@ -23,6 +23,10 @@ const Footer = () => {
             Github
           </a>
         </div>
+        <div className="footer-col-item">
+          {" "}
+          <a href="https://angel.co/u/katie-yuchen-hang">AngelList</a>
+        </div>
       </div>
       <div className="footer-col-name">
         <h2>TECHNOLOGIES</h2>
