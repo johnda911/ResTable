@@ -16,9 +16,18 @@ class Login extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
-  handleSubmit(e) {
+  handleSubmit(e, isDemoUser) {
     e.preventDefault();
-    const formUser = Object.assign({}, this.state);
+    // const formUser = Object.assign({}, this.state);
+    const formUser = isDemoUser
+      ? {
+          email: "demouser@gmail.com",
+          password: "123456",
+        }
+      : {
+          email: this.state.email,
+          password: this.state.password,
+        };
     this.props.processForm(formUser).then(this.props.closeModal);
   }
 
@@ -27,8 +36,6 @@ class Login extends React.Component {
     this.props.closeModal();
     this.props.openModal("signup");
   }
-
-  handleDemoUser;
 
   renderErrors() {
     const validErrors = this.props.errors.filter((err) => err.length > 0);
@@ -76,7 +83,10 @@ class Login extends React.Component {
             />
             <br />
           </label>
-          <button className="login-button" onClick={this.handleSubmit}>
+          <button
+            className="login-button"
+            onClick={(e) => this.handleSubmit(e, false)}
+          >
             Sign in
           </button>
           <div className="session-message">New to ResTable?</div>
@@ -91,8 +101,8 @@ class Login extends React.Component {
           <div className="session-message">Or sign in as a</div>
           <div>
             <button
-              className="login-link-container"
-              // onClick={this.openSignUpModal}
+              className="login-button"
+              onClick={(e) => this.handleSubmit(e, true)}
             >
               Demo User
             </button>
