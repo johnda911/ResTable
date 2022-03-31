@@ -27,6 +27,12 @@ const Footer = () => {
           {" "}
           <a href="https://angel.co/u/katie-yuchen-hang">AngelList</a>
         </div>
+        <div className="footer-col-item">
+          {" "}
+          <a href="https://johnda911.github.io/" target="_blank">
+            Portfolio Site
+          </a>
+        </div>
       </div>
       <div className="footer-col-name">
         <h2>TECHNOLOGIES</h2>
@@ -48,17 +54,22 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/yuchen-katie-hang-443b27a4/"
                 target="_blank"
               >
-                <i className="fa-brands fa-linkedin fa-lg"></i>
+                <i className="fa-brands fa-linkedin fa-5x"></i>
               </a>
             </li>
             <li>
               <a href="https://github.com/johnda911" target="_blank">
-                <i className="fa-brands fa-github fa-lg"></i>
+                <i className="fa-brands fa-github fa-3x"></i>
               </a>
             </li>
             <li>
               <a href="https://angel.co/u/katie-yuchen-hang" target="_blank">
-                <i className="fa-brands fa-angellist"></i>
+                <i className="fa-brands fa-angellist  fa-3x"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://johnda911.github.io/" target="_blank">
+                <i className="fa-regular fa-address-card  fa-3x"></i>
               </a>
             </li>
           </ul>
