@@ -39,6 +39,7 @@
       .button-group {
         display: flex;
         flex-direction: row;
+        font-size: 40px;
         #search-button {
           width: 15px;
           background-color: transparent;
@@ -60,23 +61,22 @@
         // height: 60px;
 
         #icon-button {
-          width: 40px;
-          // height: 60px;
+          width: 44px;
           background-color: transparent;
           border: none;
+          // font-size: 40px;
           &:hover {
             cursor: pointer;
           }
         }
         #calendar-button {
-          width: 40px;
-          // height: 60px;
+          width: 44px;
           background-color: transparent;
           border: none;
           color: rgb(190, 189, 189);
         }
         #search-button {
-          width: 40px;
+          width: 44px;
           background-color: transparent;
           border-bottom: none;
           border-top: none;
@@ -92,4 +92,7 @@
 .ico {
   width: 100%;
   height: 100%;
+}
+i {
+  font-size: 36px;
 }
