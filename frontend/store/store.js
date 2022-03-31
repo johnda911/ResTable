@@ -1,5 +1,5 @@
-import { create } from 'lodash';
 import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import RootReducer from '../reducers/root_reducer';
 
@@ -9,7 +9,7 @@ and returns a store created with the `RootReducer`, `preloadedState`, and
 `thunk` middleware.
 */
 const configureStore = (preloadedState = {}) => {
-    return createStore(RootReducer, preloadedState, applyMiddleware(thunk));
+    return createStore(RootReducer, preloadedState, applyMiddleware(thunk, logger));
 }
 
 export default configureStore;
