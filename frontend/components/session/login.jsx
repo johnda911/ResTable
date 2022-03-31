@@ -28,6 +28,8 @@ class Login extends React.Component {
     this.props.openModal("signup");
   }
 
+  handleDemoUser;
+
   renderErrors() {
     const validErrors = this.props.errors.filter((err) => err.length > 0);
     return (
