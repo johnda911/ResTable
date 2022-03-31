@@ -56,11 +56,7 @@ class Signup extends React.Component {
       <div className="session-form">
         <form className="session-form-box" onSubmit={this.handleSubmit}>
           {/* <h2>Welcome to ResTable!</h2> */}
-          <div className="session-reminder">
-            {/* Welcome to ResTable! */}
-            {/* <br /> */}
-            Sign Up
-          </div>
+          <div className="session-reminder">Let's get you signed up!</div>
           {this.renderErrors()}
           <br />
           <label>
@@ -93,19 +89,19 @@ class Signup extends React.Component {
               className="login-input"
             />
             <br />
-            <button className="login-button" onClick={this.handleSubmit}>
-              Create a New Account
-            </button>
-            <div className="session-message">Already have an account?</div>
-            <div>
-              <button
-                className="login-link-container"
-                onClick={this.openLogInModal}
-              >
-                Sign in
-              </button>
-            </div>
           </label>
+          <button className="login-button" onClick={this.handleSubmit}>
+            Create a New Account
+          </button>
+          <div className="session-message">Already have an account?</div>
+          <div>
+            <button
+              className="login-link-container"
+              onClick={this.openLogInModal}
+            >
+              Sign in
+            </button>
+          </div>
         </form>
       </div>
     );

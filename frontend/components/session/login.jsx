@@ -49,9 +49,7 @@ class Login extends React.Component {
       <div className="session-form">
         <form className="session-form-box">
           <div className="session-reminder">
-            {/* Welcome back to ResTable! */}
-            {/* <br /> */}
-            Log In
+            Welcome back to ResTable!
             {this.renderErrors()}
           </div>
           <br />
@@ -75,19 +73,28 @@ class Login extends React.Component {
               className="login-input"
             />
             <br />
-            <button className="login-button" onClick={this.handleSubmit}>
-              Sign in
-            </button>
-            <div className="session-message">New to ResTable?</div>
-            <div>
-              <button
-                className="login-link-container"
-                onClick={this.openSignUpModal}
-              >
-                Sign up
-              </button>
-            </div>
           </label>
+          <button className="login-button" onClick={this.handleSubmit}>
+            Sign in
+          </button>
+          <div className="session-message">New to ResTable?</div>
+          <div>
+            <button
+              className="login-link-container"
+              onClick={this.openSignUpModal}
+            >
+              Sign up
+            </button>
+          </div>
+          <div className="session-message">Or sign in as a</div>
+          <div>
+            <button
+              className="login-link-container"
+              // onClick={this.openSignUpModal}
+            >
+              Demo User
+            </button>
+          </div>
         </form>
       </div>
     );
