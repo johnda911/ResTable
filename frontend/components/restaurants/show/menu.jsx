@@ -7,11 +7,12 @@ const Menu = (props) => {
       <div className="module-title">
         <h2>Menu</h2>
       </div>
-      <div>
-        <img
+      <div className="menu-div">
+        Under construction, comning soon ...
+        {/* <img
           className="menu-img"
           src="https://images.squarespace-cdn.com/content/v1/54494113e4b0f7bd223b5e10/b69f103e-916a-4867-9cd8-6ac3b2d66c8e/Dinner+Menu?format=2500w"
-        ></img>
+        ></img> */}
         {/* <div className="appetizer">
           <div>Appetizer</div>
           <div>
