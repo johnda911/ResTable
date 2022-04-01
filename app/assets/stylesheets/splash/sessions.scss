@@ -169,6 +169,19 @@ input {
   // height: 55vh;
 }
 
+.x-icon:after {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  position: absolute;
+  top: -15px;
+  right: 10px;
+  content: "\00D7";
+  font-size: 30px;
+  color: black;
+  line-height: 100px;
+}
+
 .session-message {
   font-size: 18px;
   font-weight: 400;

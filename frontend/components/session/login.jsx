@@ -57,6 +57,7 @@ class Login extends React.Component {
     return (
       <div className="session-form">
         <form className="session-form-box">
+          <div className="x-icon" onClick={this.props.closeModal}></div>
           <div className="session-reminder">
             Welcome back to ResTable!
             {this.renderErrors()}
