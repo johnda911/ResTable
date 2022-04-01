@@ -35,6 +35,7 @@ class ReservationConfirmation extends React.Component {
     this.handleProfile = this.handleProfile.bind(this);
     this.handleAlertClose = this.handleAlertClose.bind(this);
     this.handleAlertOpen = this.handleAlertOpen.bind(this);
+    this.handleModify = this.handleModify.bind(this);
   }
 
   componentDidMount() {
@@ -58,6 +59,14 @@ class ReservationConfirmation extends React.Component {
     this.props.history.push(
       `/user/${this.props.reservation.user_id}/reservations`
     );
+  }
+  handleModify() {
+    console.log(this.props);
+    console.log(this.props.match.params.reservationId);
+    return;
+    // this.props.history.push(
+    //   `/reservation/${this.props.match.params.reservationId}/confirmation/modify`
+    // );
   }
 
   render() {
@@ -168,16 +177,16 @@ class ReservationConfirmation extends React.Component {
                   </Link>
                 ) : (
                   <span>
+                    <button className="cancel-btn" onClick={this.handleModify}>
+                      Modify
+                    </button>
                     <button
                       className="cancel-btn"
                       onClick={this.handleAlertOpen}
                     >
                       Cancel
                     </button>
-                    <button
-                      className="cancel-btn view-botton"
-                      onClick={this.handleProfile}
-                    >
+                    <button className="view-btn" onClick={this.handleProfile}>
                       My Reservations
                     </button>
                   </span>
@@ -212,10 +221,6 @@ class ReservationConfirmation extends React.Component {
                 </div>
               </div>
             )}
-            {/* <div className="lower-session">
-              <div>Who's going?</div>
-              <div>{reservation.userName}</div>
-            </div> */}
           </div>
         )}
       </div>
