@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :users, only:[:show, :create]
     resource :session, only: [:create, :destroy]
     resources :restaurants, only:[:index, :show]
-    resources :reservations, only: [:create, :destroy, :show, :index]
+    resources :reservations, only: [:create, :destroy, :show, :index, :update]
 
     # resources :favorites, only: [:create, :destroy]
     # post '/search', to: 'users#search'
