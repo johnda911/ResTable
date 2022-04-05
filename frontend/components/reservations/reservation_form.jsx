@@ -69,6 +69,7 @@ export default ({ reservation, currentUser, login, history }) => {
     const reservationDate = myReservation.date;
     reservationDate.setHours(hour);
     reservationDate.setMinutes(miniute);
+    reservationDate.setSeconds(0);
     // console.log(reservationDate); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
     // console.log(state.date); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
     // console.log(state.time); //18:30:00
