@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import {
   requestReservation,
   deleteReservation,
+  updateReservation,
 } from "../../actions/reservation_actions";
 import { FcApproval } from "react-icons/fc";
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -63,10 +64,10 @@ class ReservationConfirmation extends React.Component {
   handleModify() {
     console.log(this.props);
     console.log(this.props.match.params.reservationId);
-    return;
-    // this.props.history.push(
-    //   `/reservation/${this.props.match.params.reservationId}/confirmation/modify`
-    // );
+    // return;
+    this.props.history.push(
+      `/reservation/${this.props.match.params.reservationId}/confirmation/modify`
+    );
   }
 
   render() {
@@ -243,6 +244,8 @@ const mDTP = (dispatch) => {
       dispatch(requestReservation(reservationId)),
     deleteReservation: (reservationId) =>
       dispatch(deleteReservation(reservationId)),
+    updateReservation: (reservation) =>
+      dispatch(updateReservation(reservation)),
   };
 };
 

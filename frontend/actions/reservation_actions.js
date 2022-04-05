@@ -38,3 +38,8 @@ export const deleteReservation = (reservationId) => dispatch => {
     return ReservationAPIUtil.deleteReservation(reservationId)
         .then(() => dispatch(removeReservation(reservationId)));
 }
+
+export const updateReservation = (reservation) => dispatch => {
+    return ReservationAPIUtil.updateReservation(reservation)
+        .then(reservation => dispatch(receiveReservation(reservation)));
+}
