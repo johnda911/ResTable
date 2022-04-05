@@ -28,12 +28,12 @@ class ReservationIndex extends React.Component {
   }
 
   render() {
-    const { user, restaurants, history } = this.props;
+    const { currentUser, user, restaurants, history } = this.props;
     // const reservations = user.userReservations;
     // console.log(this.props);
     return (
       <>
-        {user && restaurants && (
+        {currentUser && user && restaurants && (
           <div className="profile-container">
             <div className="top-greeting-session">
               <div className="username">{user.username}</div>
