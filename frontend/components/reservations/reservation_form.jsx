@@ -37,9 +37,23 @@ export default ({ reservation, currentUser, login, history }) => {
   };
 
   const handleDateChange = (newDate) => {
-    myReservation.date = newDate;
-    const newRes = Object.assign({}, myReservation);
-    setMyReservation(newRes);
+    console.log(newDate); //Wed Apr 20 2022 15:45:45 GMT-0400 (Eastern Daylight Time)
+    myReservation.date = new Date(Date.parse(newDate)).toLocaleString("en-US", {
+      timeZone: "UTC",
+    });
+    console.log(myReservation.date); //4/20/2022, 7:45:45 PM
+    myReservation.date = myReservation.date.split(", ")[0]; //4/20/2022
+    const splitTime = myReservation.date.split("/");
+    if (myReservation.date) {
+      myReservation.date = splitTime[2]
+        .concat("-")
+        .concat(splitTime[0])
+        .concat("-")
+        .concat(splitTime[1]);
+      console.log(myReservation.date);
+      const newRes = Object.assign({}, myReservation);
+      setMyReservation(newRes);
+    }
   };
 
   const handleAlertClose = () => {
@@ -61,24 +75,40 @@ export default ({ reservation, currentUser, login, history }) => {
       handleAlertOpen();
       return;
     }
-    // get hours from time
-    const timeStr = myReservation.time; // 08:20:00
-    const hour = Number(timeStr.split(":")[0]);
-    const miniute = Number(timeStr.split(":")[1]);
-    //set time for date
-    const reservationDate = myReservation.date;
-    reservationDate.setHours(hour);
-    reservationDate.setMinutes(miniute);
-    // console.log(reservationDate); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
-    // console.log(state.date); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
-    // console.log(state.time); //18:30:00
-    const partySize = myReservation.partySize;
+    // // get hours from time
+    // const timeStr = myReservation.time; // 08:20:00
+    // const hour = Number(timeStr.split(":")[0]);
+    // const miniute = Number(timeStr.split(":")[1]);
+    // //set time for date
+    // const reservationDate = myReservation.date;
+    // reservationDate.setHours(hour);
+    // reservationDate.setMinutes(miniute);
+    // reservationDate.setSeconds(0);
+
+    // // console.log(reservationDate); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
+    // // console.log(state.date); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
+    // // console.log(state.time); //18:30:00
+
+    console.log(myReservation);
+
+    // if (myReservation.date && myReservation.time) {
+    //   myReservation.date = new Date(
+    //     Date.parse(reservation.date)
+    //   ).toLocaleString("en-US", {
+    //     timeZone: "UTC",
+    //   });
+    //   myReservation.date = myReservation.date.split(", ")[0];
+    //   myReservation.time = myReservation.time.split(".")[0].substring(11); //22:00:00
+    //   console.log(myReservation.date);
+    //   console.log(myReservation.time);
+    // }
 
     ReservationAPIUtil.createReservation({
       restaurant_id: myReservation.restaurant_id,
-      date: reservationDate,
-      time: reservationDate,
-      party_size: partySize,
+      // date: "2022-4-20",
+      date: myReservation.date,
+      time: myReservation.time,
+      party_size: myReservation.partySize,
       phone: "(123)-456-7890",
       user_id: currentUser.id,
     }).then((reservation) => {
