@@ -14,6 +14,7 @@ import { FcApproval } from "react-icons/fc";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineCalendar } from "react-icons/ai";
+import { BsClockHistory } from "react-icons/bs";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { MdOutlineMenuBook } from "react-icons/md";
 import Button from "@mui/material/Button";
@@ -42,13 +43,18 @@ class ReservationModification extends React.Component {
       updateReservation,
       history,
     } = this.props;
+
     if (reservation && reservation.date) {
       reservation.date = new Date(Date.parse(reservation.date)).toLocaleString(
         "en-US",
         {
-          timeZone: "America/New_York",
+          timeZone: "UTC",
         }
       );
+      reservation.date = reservation.date.split(", ")[0];
+    }
+    if (reservation && reservation.time) {
+      reservation.time = reservation.time.split(".")[0].substring(11); //22:00:00
     }
 
     return (
@@ -73,6 +79,10 @@ class ReservationModification extends React.Component {
                     <span className="confirmation-info">
                       <AiOutlineCalendar className="calender-icon" />
                       {reservation.date}
+                    </span>
+                    <span className="confirmation-info">
+                      <BsClockHistory className="calender-icon" />
+                      {reservation.time}
                     </span>
                     <span className="confirmation-info">
                       <CgProfile className="calender-icon" />

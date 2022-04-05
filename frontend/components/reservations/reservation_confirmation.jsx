@@ -26,7 +26,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 class ReservationConfirmation extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(this.props);
     let reservation = {
       cancelled: false,
       ...this.props.reservation,
@@ -62,9 +61,8 @@ class ReservationConfirmation extends React.Component {
     );
   }
   handleModify() {
-    console.log(this.props);
-    console.log(this.props.match.params.reservationId);
-    // return;
+    // console.log(this.props);
+    // console.log(this.props.match.params.reservationId);
     this.props.history.push(
       `/reservation/${this.props.match.params.reservationId}/confirmation/modify`
     );
@@ -72,13 +70,18 @@ class ReservationConfirmation extends React.Component {
 
   render() {
     const { reservation } = this.props;
+    console.log(reservation);
     if (reservation && reservation.date) {
       reservation.date = new Date(Date.parse(reservation.date)).toLocaleString(
         "en-US",
         {
-          timeZone: "America/New_York",
+          timeZone: "UTC",
         }
       );
+      reservation.date = reservation.date.split(", ")[0];
+    }
+    if (reservation && reservation.time) {
+      reservation.time = reservation.time.split(".")[0].substring(11); //22:00:00
     }
 
     return (
@@ -96,7 +99,7 @@ class ReservationConfirmation extends React.Component {
           </DialogTitle>
           {/* </div> */}
           <DialogContent>
-            {reservation && (
+            {reservation && reservation.date && reservation.time && (
               <div>
                 <div className="confirm-title">
                   {reservation.restaurantName}
@@ -108,7 +111,7 @@ class ReservationConfirmation extends React.Component {
                   </span>
                   <span className="confirmation-info">
                     <AiOutlineCalendar className="calender-icon" />
-                    {reservation.date}
+                    {reservation.date} at {reservation.time}
                   </span>
                 </div>
               </div>
@@ -166,7 +169,7 @@ class ReservationConfirmation extends React.Component {
                   </span>
                   <span className="confirmation-info">
                     <AiOutlineCalendar className="calender-icon" />
-                    {reservation.date}
+                    {reservation.date} at {reservation.time}
                   </span>
                 </div>
                 {this.state.cancelled ? (

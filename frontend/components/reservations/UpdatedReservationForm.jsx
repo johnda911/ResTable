@@ -30,13 +30,24 @@ export default ({
 }) => {
   const [myReservation, setMyReservation] = useState(reservation);
   console.log(myReservation);
-  let pacificTime = myReservation.time.split(".")[0].substring(11); //22:00:00
-  const pacificHour = (Number(pacificTime.split(":")[0]) - 4).toString();
-  const pacificMinute = Number(pacificTime.split(":")[1]).toString();
-  const muiTime = pacificHour.concat(":").concat(pacificMinute).concat("0:00");
-  //   console.log(typeof pacificHour); //string
-  //   console.log(typeof pacificMinute); //string
-  console.log(muiTime); //18:00:00
+
+  const changeTimeToMui = (prevTime) => {
+    console.log(prevTime); //2022-04-04T20:00:00.000Z
+    let pacificTime = prevTime.split(".")[0].substring(11); //22:00:00
+    console.log(pacificTime); //21:30:00
+    const pacificHour = Number(pacificTime.split(":")[0]).toString();
+    let pacificMinute = Number(pacificTime.split(":")[1]).toString();
+    console.log(pacificHour); //17
+    console.log(pacificMinute); //30
+    let muiTime =
+      pacificMinute === "30"
+        ? pacificHour.concat(":30:00")
+        : pacificHour.concat(":00:00");
+    //   console.log(typeof pacificHour); //string
+    //   console.log(typeof pacificMinute); //string
+    console.log(muiTime); //18:00:00
+    return muiTime;
+  };
 
   const handleTimeChange = (event) => {
     myReservation.time = event.target.value;
@@ -145,7 +156,7 @@ export default ({
             <Select
               id="time-select"
               //   value={myReservation.time} //"2022-04-05T22:00:00.000Z"
-              value={muiTime}
+              value={changeTimeToMui(myReservation.time)}
               label="Time"
               onChange={handleTimeChange}
             >

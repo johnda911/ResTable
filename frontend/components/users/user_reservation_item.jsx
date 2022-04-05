@@ -21,10 +21,15 @@ class UserReservationItem extends React.Component {
       reservation.date = new Date(Date.parse(reservation.date)).toLocaleString(
         "en-US",
         {
-          timeZone: "America/New_York",
+          timeZone: "UTC",
         }
       );
+      reservation.date = reservation.date.split(", ")[0];
     }
+    if (reservation && reservation.time) {
+      reservation.time = reservation.time.split(".")[0].substring(11); //22:00:00
+    }
+
     return (
       <div className="reservation-item">
         <div>
@@ -42,6 +47,12 @@ class UserReservationItem extends React.Component {
               onClick={() => this.handleView(reservation.id)}
             >
               View
+            </div>
+            <div
+              className="view-btn"
+              onClick={() => this.handleCancelReservation(reservation.id)}
+            >
+              Modify
             </div>
             <div
               className="view-btn"
