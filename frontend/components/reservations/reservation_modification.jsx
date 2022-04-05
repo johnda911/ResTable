@@ -27,7 +27,7 @@ import { withRouter } from "react-router-dom";
 class ReservationModification extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(this.props);
+    console.log(this.props);
   }
 
   componentDidMount() {
@@ -35,8 +35,13 @@ class ReservationModification extends React.Component {
   }
 
   render() {
-    const { reservation, currentUser, requestReservation, updateReservation } =
-      this.props;
+    const {
+      reservation,
+      currentUser,
+      requestReservation,
+      updateReservation,
+      history,
+    } = this.props;
     if (reservation && reservation.date) {
       reservation.date = new Date(Date.parse(reservation.date)).toLocaleString(
         "en-US",
@@ -84,6 +89,7 @@ class ReservationModification extends React.Component {
                 requestReservation={requestReservation}
                 updateReservation={updateReservation}
                 currentUser={currentUser}
+                history={history}
               />
             </div>
           </div>

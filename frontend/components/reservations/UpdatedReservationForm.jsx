@@ -77,6 +77,7 @@ export default ({
       restaurant_id: myReservation.restaurant_id,
       user_id: currentUser.id,
     }).then((reservation) => {
+      console.log(reservation);
       history.push(`/reservation/${reservation.id}/confirmation`);
     });
   };
