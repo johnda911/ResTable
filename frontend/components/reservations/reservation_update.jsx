@@ -25,7 +25,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { withRouter } from "react-router-dom";
 
-class ReservationModification extends React.Component {
+class ReservationUpdate extends React.Component {
   constructor(props) {
     super(props);
     // console.log(this.props);
@@ -127,4 +127,4 @@ const mDTP = (dispatch) => {
   };
 };
 
-export default connect(mSTP, mDTP)(ReservationModification);
+export default connect(mSTP, mDTP)(ReservationUpdate);
