@@ -1,29 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-// import * as ReservationAPIUtil from "../../utils/reservation_api_util";
 import {
   requestReservation,
   updateReservation,
 } from "../../actions/reservation_actions";
 import UpdatedReservationForm from "./UpdatedReservationForm";
 
-import { FcApproval } from "react-icons/fc";
-import { AiFillCloseCircle } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { BsClockHistory } from "react-icons/bs";
-import { FaMapMarkedAlt } from "react-icons/fa";
-import { MdOutlineMenuBook } from "react-icons/md";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import { withRouter } from "react-router-dom";
 
 class ReservationUpdate extends React.Component {
   constructor(props) {
@@ -60,32 +45,32 @@ class ReservationUpdate extends React.Component {
     return (
       <>
         {reservation && currentUser && (
-          <div>
-            <div>Your current reservation</div>
+          <div className="update-pg-container">
+            <div className="your-current-res">Your current reservation</div>
 
-            <div className="confirmation-container">
+            <div className="confirmation-container-update">
               <div className="top-session">
                 <div>
                   <img
-                    className="small-photo"
+                    className="small-photo-update"
                     src={reservation.restaurantPhotoURL}
                   />
                 </div>
-                <div className="info-list">
-                  <div className="confirmation-title">
+                <div className="info-list-update">
+                  <div className="confirmation-title-update">
                     {reservation.restaurantName}
                   </div>
-                  <div className="confirm-info-div">
-                    <span className="confirmation-info">
-                      <AiOutlineCalendar className="calender-icon" />
+                  <div className="confirm-info-div-update">
+                    <span className="confirmation-info-update">
+                      <AiOutlineCalendar className="calender-icon-update" />
                       {reservation.date}
                     </span>
-                    <span className="confirmation-info">
-                      <BsClockHistory className="calender-icon" />
+                    <span className="confirmation-info-update">
+                      <BsClockHistory className="calender-icon-update" />
                       {reservation.time}
                     </span>
-                    <span className="confirmation-info">
-                      <CgProfile className="calender-icon" />
+                    <span className="confirmation-info-update">
+                      <CgProfile className="calender-icon-update" />
                       {reservation.party_size}person
                     </span>
                   </div>
@@ -93,7 +78,9 @@ class ReservationUpdate extends React.Component {
               </div>
             </div>
 
-            <div>
+            <div className="your-current-res">Modify your reservation</div>
+
+            <div className="updated-form">
               <UpdatedReservationForm
                 reservation={reservation}
                 requestReservation={requestReservation}

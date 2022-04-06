@@ -12,14 +12,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { HiTrendingUp } from "react-icons/hi";
-
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import InputAdornment from "@mui/material/InputAdornment";
+import AccountCircle from "@mui/icons-material/AccountCircle";
 
 export default ({
   reservation,
@@ -119,14 +113,56 @@ export default ({
   };
 
   return (
-    <div className="reservation-form">
-      <div>Modify your reservation</div>
-      <div className="party-size">
-        <FormControl variant="standard" fullWidth>
+    <div className="reservation-form-update">
+      {/* <div>Modify your reservation</div> */}
+
+      {/* <div className="date-time-update"> */}
+      <div className="date-update">
+        <div>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+              // className="date-picker"
+              label=""
+              value={myReservation.date} //"4/1/2022, 8:00:00 PM"
+              onChange={(newDate) => {
+                handleDateChange(newDate);
+              }}
+              renderInput={(params) => (
+                <TextField variant="outlined" {...params} />
+              )}
+              components={{ OpenPickerIcon: ArrowDropDownIcon }}
+            />
+          </LocalizationProvider>
+        </div>
+      </div>
+      <div className="time-update">
+        {/* {console.log(myReservation.time)}
+          {console.log("==============")} */}
+        <FormControl variant="outlined" fullWidth>
+          <Select
+            id="time-select"
+            //   value={myReservation.time} //"2022-04-05T22:00:00.000Z"
+            value={myReservation.time}
+            onChange={handleTimeChange}
+          >
+            <MenuItem value={"17:30:00"}>5:30 PM</MenuItem>
+            <MenuItem value={"18:00:00"}>6:00 PM</MenuItem>
+            <MenuItem value={"18:30:00"}>6:30 PM</MenuItem>
+            <MenuItem value={"19:00:00"}>7:00 PM</MenuItem>
+            <MenuItem value={"19:30:00"}>7:30 PM</MenuItem>
+            <MenuItem value={"20:00:00"}>8:00 PM</MenuItem>
+            <MenuItem value={"20:30:00"}>8:30 PM</MenuItem>
+            <MenuItem value={"21:00:00"}>9:00 PM</MenuItem>
+            <MenuItem value={"21:30:00"}>9:30 PM</MenuItem>
+            <MenuItem value={"22:00:00"}>10:00 PM</MenuItem>
+          </Select>
+        </FormControl>
+      </div>
+      <div className="party-size-update">
+        <FormControl variant="outlined" fullWidth>
           <Select
             id="party-select"
             value={`${myReservation.party_size}`}
-            label="Party Size"
             onChange={handlePartyChange}
           >
             <MenuItem value={1}>1</MenuItem>
@@ -140,51 +176,8 @@ export default ({
           </Select>
         </FormControl>
       </div>
-      <div className="date-time">
-        <div className="date">
-          <div>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DatePicker
-                className="date-picker"
-                label=""
-                value={myReservation.date} //"4/1/2022, 8:00:00 PM"
-                onChange={(newDate) => {
-                  handleDateChange(newDate);
-                }}
-                renderInput={(params) => (
-                  <TextField variant="standard" {...params} />
-                )}
-                components={{ OpenPickerIcon: ArrowDropDownIcon }}
-              />
-            </LocalizationProvider>
-          </div>
-        </div>
-        <div className="time">
-          {/* {console.log(myReservation.time)}
-          {console.log("==============")} */}
-          <FormControl variant="standard" fullWidth>
-            <Select
-              id="time-select"
-              //   value={myReservation.time} //"2022-04-05T22:00:00.000Z"
-              value={myReservation.time}
-              label="Time"
-              onChange={handleTimeChange}
-            >
-              <MenuItem value={"17:30:00"}>5:30 PM</MenuItem>
-              <MenuItem value={"18:00:00"}>6:00 PM</MenuItem>
-              <MenuItem value={"18:30:00"}>6:30 PM</MenuItem>
-              <MenuItem value={"19:00:00"}>7:00 PM</MenuItem>
-              <MenuItem value={"19:30:00"}>7:30 PM</MenuItem>
-              <MenuItem value={"20:00:00"}>8:00 PM</MenuItem>
-              <MenuItem value={"20:30:00"}>8:30 PM</MenuItem>
-              <MenuItem value={"21:00:00"}>9:00 PM</MenuItem>
-              <MenuItem value={"21:30:00"}>9:30 PM</MenuItem>
-              <MenuItem value={"22:00:00"}>10:00 PM</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
-      </div>
-      <div className="reserve-table-btn" onClick={handleSubmit}>
+      {/* </div> */}
+      <div className="modify-table-btn" onClick={handleSubmit}>
         Modify the reservation
       </div>
     </div>
