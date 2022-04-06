@@ -71,7 +71,7 @@ class UserReservationItem extends React.Component {
             </div>
           </div>
         ) : (
-          <div>""</div>
+          <div></div>
         )}
       </>
     );
