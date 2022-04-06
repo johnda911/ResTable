@@ -30,7 +30,8 @@ class ReservationIndex extends React.Component {
   render() {
     const { currentUser, user, restaurants, history } = this.props;
     // const reservations = user.userReservations;
-    // console.log(this.props);
+    console.log(user);
+    console.log("=====================");
     return (
       <>
         {currentUser && user && restaurants && (
@@ -46,7 +47,12 @@ class ReservationIndex extends React.Component {
               </div>
               <div className="right-content-session">
                 <div className="upcoming-reservations">
-                  <h2>Upcoming Reservations</h2>
+                  {/* {console.log(user.userReservations)} */}
+                  {user.userReservations.length !== 0 ? (
+                    <h2>Upcoming Reservations</h2>
+                  ) : (
+                    <h2>No upcoming reservations</h2>
+                  )}
                 </div>
                 <div className="reservation-profile-list">
                   {user.userReservations.map((reservation) => {
@@ -59,6 +65,7 @@ class ReservationIndex extends React.Component {
                         restaurantName={this.getRestaurantName(
                           reservation.restaurant_id
                         )}
+                        currentUser={currentUser}
                         key={reservation.id}
                         history={history}
                       />
