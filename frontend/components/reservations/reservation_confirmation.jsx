@@ -40,14 +40,28 @@ class ReservationConfirmation extends React.Component {
 
   componentDidMount() {
     this.props.requestReservation(this.props.match.params.reservationId);
+    // console.log("componentDidUMount===========================");
   }
+
+  // componentDidUpdate() {
+  //   if (this.props.reservation && this.props.reservation.time) {
+  //     console.log(this.props.reservation);
+  //     this.setState({
+  //       time: this.props.reservation.time,
+  //       date: this.props.reservation.date,
+  //     });
+  //     console.log("componentDidUpdate=============================");
+  //   }
+  // }
 
   handleAlertClose() {
     this.setState({ open: false });
   }
 
   handleAlertOpen() {
-    this.setState({ open: true });
+    console.log("======= handle alert open");
+    console.log(this.props.reservation);
+    this.setState({ open: true, ...this.props.reservation });
   }
 
   handleCancel() {
@@ -70,7 +84,7 @@ class ReservationConfirmation extends React.Component {
 
   render() {
     const { reservation } = this.props;
-    console.log(reservation);
+    // console.log(reservation);
     if (reservation && reservation.date) {
       reservation.date = new Date(Date.parse(reservation.date)).toLocaleString(
         "en-US",
@@ -81,37 +95,36 @@ class ReservationConfirmation extends React.Component {
       reservation.date = reservation.date.split(", ")[0];
     }
     if (reservation && reservation.time) {
-      reservation.time = reservation.time.split(".")[0].substring(11); //22:00:00
+      if (reservation.time.includes(".")) {
+        reservation.time = reservation.time.split(".")[0].substring(11); //22:00:00
+      }
     }
 
     return (
       <div className="confirmation-box">
         {/* library used to make an alert */}
+        {/* {console.log(this.state)} */}
         <Dialog
           open={this.state.open}
           onClose={this.handleAlertClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          {/* <div className="question-alert" id="alert-dialog-title"> */}
           <DialogTitle id="alert-dialog-title">
             {"Are you sure you want to cancel this reservation?"}
           </DialogTitle>
-          {/* </div> */}
           <DialogContent>
-            {reservation && reservation.date && reservation.time && (
+            {reservation && (
               <div>
-                <div className="confirm-title">
-                  {reservation.restaurantName}
-                </div>
+                <div className="confirm-title">{this.state.restaurantName}</div>
                 <div className="confirm-info-div">
                   <span className="confirmation-info">
                     <CgProfile className="calender-icon" />
-                    {reservation.party_size}(Standard seating )
+                    {this.state.party_size}
                   </span>
                   <span className="confirmation-info">
                     <AiOutlineCalendar className="calender-icon" />
-                    {reservation.date} at {reservation.time}
+                    {this.state.date} at {this.state.time}
                   </span>
                 </div>
               </div>
@@ -137,6 +150,7 @@ class ReservationConfirmation extends React.Component {
           </DialogActions>
         </Dialog>
         {reservation && (
+          // {reservation && reservation.time && (
           <div className="confirmation-container">
             <div className="top-session">
               <div>
@@ -148,6 +162,8 @@ class ReservationConfirmation extends React.Component {
               <div className="info-list">
                 <div className="confirmation-title">
                   {reservation.restaurantName}
+                  {/* {console.log(this.state)} */}
+                  {/* {console.log(reservation)} */}
                 </div>
                 <div>
                   {this.state.cancelled ? (
@@ -169,6 +185,7 @@ class ReservationConfirmation extends React.Component {
                   </span>
                   <span className="confirmation-info">
                     <AiOutlineCalendar className="calender-icon" />
+                    {/* {console.log(reservation)} */}
                     {reservation.date} at {reservation.time}
                   </span>
                 </div>
