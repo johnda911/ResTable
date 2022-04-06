@@ -31,7 +31,6 @@ class ReservationIndex extends React.Component {
     const { currentUser, user, restaurants, history } = this.props;
     // const reservations = user.userReservations;
     console.log(user);
-    console.log("=====================");
     return (
       <>
         {currentUser && user && restaurants && (

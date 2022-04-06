@@ -54,20 +54,6 @@ const Dropdown = withRouter(({ history, ...props }) => {
               Sign out
             </div>
           </Link>
-          {/* <div
-            className="action-button"
-            id="signout-btn"
-            onClick={props.logout}
-          >
-            <Link to="/">Sign out</Link>
-          </div> */}
-          {/* <div
-            className="action-button"
-            id="signout-btn"
-            onClick={props.logout}
-          >
-            Sign out
-          </div> */}
         </div>
       </Popover>
     </div>

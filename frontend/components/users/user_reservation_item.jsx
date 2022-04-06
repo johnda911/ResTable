@@ -6,7 +6,7 @@ class UserReservationItem extends React.Component {
     super(props);
     this.handleView = this.handleView.bind(this);
     this.handleCancelReservation = this.handleCancelReservation.bind(this);
-    console.log(this.props);
+    // console.log(this.props);
   }
 
   handleView(reservationId) {
@@ -34,8 +34,8 @@ class UserReservationItem extends React.Component {
 
     return (
       <>
-        {console.log(reservation.user_id)}
-        {console.log(currentUser.id)}
+        {/* {console.log(reservation.user_id)} */}
+        {/* {console.log(currentUser.id)} */}
         {reservation.user_id === currentUser.id ? (
           // <div>currentuser</div>
           <div className="reservation-item">
@@ -71,7 +71,7 @@ class UserReservationItem extends React.Component {
             </div>
           </div>
         ) : (
-          <div>""</div>
+          <div></div>
         )}
       </>
     );
