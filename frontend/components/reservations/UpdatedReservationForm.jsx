@@ -29,25 +29,29 @@ export default ({
   history,
 }) => {
   const [myReservation, setMyReservation] = useState(reservation);
-  console.log(myReservation);
+  // console.log(reservation);
+  // console.log(myReservation);
 
-  const changeTimeToMui = (prevTime) => {
-    console.log(prevTime); //2022-04-04T20:00:00.000Z
-    let pacificTime = prevTime.split(".")[0].substring(11); //22:00:00
-    console.log(pacificTime); //21:30:00
-    const pacificHour = Number(pacificTime.split(":")[0]).toString();
-    let pacificMinute = Number(pacificTime.split(":")[1]).toString();
-    console.log(pacificHour); //17
-    console.log(pacificMinute); //30
-    let muiTime =
-      pacificMinute === "30"
-        ? pacificHour.concat(":30:00")
-        : pacificHour.concat(":00:00");
-    //   console.log(typeof pacificHour); //string
-    //   console.log(typeof pacificMinute); //string
-    console.log(muiTime); //18:00:00
-    return muiTime;
-  };
+  if (reservation && reservation.date) {
+    reservation.date = new Date(Date.parse(reservation.date)).toLocaleString(
+      "en-US",
+      {
+        timeZone: "UTC",
+      }
+    );
+    reservation.date = reservation.date.split(", ")[0];
+    if (myReservation.date !== reservation.date) {
+      setMyReservation(reservation);
+    }
+  }
+  if (reservation && reservation.time) {
+    if (reservation.time.includes(".")) {
+      reservation.time = reservation.time.split(".")[0].substring(11); //22:00:00
+    }
+    if (myReservation.time !== reservation.time) {
+      setMyReservation(reservation);
+    }
+  }
 
   const handleTimeChange = (event) => {
     myReservation.time = event.target.value;
@@ -65,50 +69,54 @@ export default ({
   };
 
   const handleDateChange = (newDate) => {
-    myReservation.date = newDate;
-    // console.log(newDate); //Thu Apr 21 2022 18:30:28 GMT-0400 (Eastern Daylight Time)
-    // console.log(typeof newDate); //Object
-    const newRes = Object.assign({}, myReservation);
-    setMyReservation(newRes);
+    myReservation.date = new Date(Date.parse(newDate)).toLocaleString("en-US", {
+      timeZone: "UTC",
+    });
+    // console.log(myReservation.date); //4/20/2022, 7:45:45 PM
+    myReservation.date = myReservation.date.split(", ")[0]; //4/20/2022
+    const splitTime = myReservation.date.split("/");
+    if (myReservation.date) {
+      myReservation.date = splitTime[2]
+        .concat("-")
+        .concat(splitTime[0])
+        .concat("-")
+        .concat(splitTime[1]);
+      // console.log(myReservation.date); //2022-4-20
+      // console.log("===========================");
+      const newRes = Object.assign({}, myReservation);
+      setMyReservation(newRes);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // get hours from time
-    // const timeStr = myReservation.time; //18:30:00
-    const timeStr = muiTime; //18:30:00
-    const hour = Number(timeStr.split(":")[0]);
-    const miniute = Number(timeStr.split(":")[1]);
-    //set time for date
-    const reservationDate = myReservation.date; //"4/1/2022, 8:00:00 PM"
-    reservationDate.setHours(hour);
-    reservationDate.setMinutes(miniute);
-    reservationDate.setSeconds(0);
 
-    // console.log(reservationDate); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
-    // console.log(typeof reservationDate); //
-    // console.log(state.date); //Thu Mar 31 2022 18:30:22 GMT-0400 (Eastern Daylight Time)
-    // console.log(state.time); //18:30:00
-    // const partySize = myReservation.party_size;
+    // console.log(reservation);
+    // console.log(myReservation);
+
+    // myReservation.time = myReservation.date.split(", ")[0]; //4/20/2022
+    const splitTime = myReservation.date.split("/");
+    myReservation.date = splitTime[2]
+      .concat("-")
+      .concat(splitTime[0])
+      .concat("-")
+      .concat(splitTime[1]);
+    // console.log(myReservation.date); //2022-4-20
+    // console.log("===========================");
 
     ReservationAPIUtil.updateReservation({
+      restaurant_id: myReservation.restaurant_id,
+      date: myReservation.date,
+      time: myReservation.time,
       id: myReservation.id,
-      date: reservationDate, //"4/1/2022, 8:00:00 PM"
-      time: reservationDate, //"2022-04-05T22:00:00.000Z"
       party_size: myReservation.party_size,
       phone: "(123)-456-7890",
-      restaurant_id: myReservation.restaurant_id,
       user_id: currentUser.id,
     }).then((reservation) => {
-      console.log(reservation);
+      // console.log(reservation);
       history.push(`/reservation/${reservation.id}/confirmation`);
     });
   };
-
-  //   let prevReservationDate = myReservation.date; //"4/1/2022, 8:00:00 PM"
-  //   let prevReservationTime = myReservation.date;
-  //   prevReservationDate = Number(prevReservationDate.split(", ")[0]);
-  //   prevReservationTime = Number(prevReservationTime.split(", ")[1]);
 
   return (
     <div className="reservation-form">
@@ -152,11 +160,13 @@ export default ({
           </div>
         </div>
         <div className="time">
+          {/* {console.log(myReservation.time)}
+          {console.log("==============")} */}
           <FormControl variant="standard" fullWidth>
             <Select
               id="time-select"
               //   value={myReservation.time} //"2022-04-05T22:00:00.000Z"
-              value={changeTimeToMui(myReservation.time)}
+              value={myReservation.time}
               label="Time"
               onChange={handleTimeChange}
             >
