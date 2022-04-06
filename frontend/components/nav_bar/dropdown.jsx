@@ -1,7 +1,7 @@
 import * as React from "react";
 import Popover from "@mui/material/Popover";
 import { CgProfile } from "react-icons/cg";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 const Dropdown = withRouter(({ history, ...props }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -45,13 +45,29 @@ const Dropdown = withRouter(({ history, ...props }) => {
           <div onClick={handleDiningHistory} className="action-button">
             My Dining History
           </div>
-          <div
+          <Link to="/">
+            <div
+              className="action-button"
+              id="signout-btn"
+              onClick={props.logout}
+            >
+              Sign out
+            </div>
+          </Link>
+          {/* <div
+            className="action-button"
+            id="signout-btn"
+            onClick={props.logout}
+          >
+            <Link to="/">Sign out</Link>
+          </div> */}
+          {/* <div
             className="action-button"
             id="signout-btn"
             onClick={props.logout}
           >
             Sign out
-          </div>
+          </div> */}
         </div>
       </Popover>
     </div>
