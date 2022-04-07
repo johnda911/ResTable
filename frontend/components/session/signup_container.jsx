@@ -7,6 +7,9 @@ import { openModal, closeModal } from "../../actions/modal_actions";
 // import {CLEAR_SESSION_ERRORS} from '../../actions/session';
 
 const mapStateToProps = (state) => {
+  // console.log(state.errors.login);
+  // console.log(state.errors);
+  // console.log("=====================");
   return {
     errors: Object.values(state.errors),
     formType: "signup",

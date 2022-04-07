@@ -6,10 +6,10 @@ import {
   deleteReservation,
 } from "../../actions/reservation_actions";
 import { withRouter } from "react-router-dom";
-import { login, CLEAR_SESSION_ERRORS } from "../../actions/session";
+import { login } from "../../actions/session";
 
 const mSTP = (state, ownProps) => {
-  // console.log(state.session.currentUser);
+  // console.log(state.errors.submitForm);
   return {
     reservation: {
       date: "",
@@ -19,6 +19,7 @@ const mSTP = (state, ownProps) => {
       restaurant_id: ownProps.restaurant_id,
     },
     currentUser: state.session.currentUser,
+    // errors: Object.values(state.errors),
   };
 };
 

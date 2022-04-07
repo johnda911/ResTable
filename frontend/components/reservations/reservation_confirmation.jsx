@@ -43,24 +43,13 @@ class ReservationConfirmation extends React.Component {
     // console.log("componentDidUMount===========================");
   }
 
-  // componentDidUpdate() {
-  //   if (this.props.reservation && this.props.reservation.time) {
-  //     console.log(this.props.reservation);
-  //     this.setState({
-  //       time: this.props.reservation.time,
-  //       date: this.props.reservation.date,
-  //     });
-  //     console.log("componentDidUpdate=============================");
-  //   }
-  // }
-
   handleAlertClose() {
     this.setState({ open: false });
   }
 
   handleAlertOpen() {
-    console.log("======= handle alert open");
-    console.log(this.props.reservation);
+    // console.log("======= handle alert open");
+    // console.log(this.props.reservation);
     this.setState({ open: true, ...this.props.reservation });
   }
 
@@ -75,8 +64,8 @@ class ReservationConfirmation extends React.Component {
     );
   }
   handleModify() {
-    console.log(this.props);
-    console.log(this.props.match.params.reservationId);
+    // console.log(this.props);
+    // console.log(this.props.match.params.reservationId);
     this.props.history.push(
       `/reservation/${this.props.match.params.reservationId}/confirmation/modify`
     );
@@ -84,7 +73,7 @@ class ReservationConfirmation extends React.Component {
 
   render() {
     const { reservation } = this.props;
-    console.log(reservation);
+    // console.log(reservation);
     if (reservation && reservation.date) {
       reservation.date = new Date(Date.parse(reservation.date)).toLocaleString(
         "en-US",
@@ -185,7 +174,7 @@ class ReservationConfirmation extends React.Component {
                   </span>
                   <span className="confirmation-info">
                     <AiOutlineCalendar className="calender-icon" />
-                    {console.log(reservation)}
+                    {/* {console.log(reservation)} */}
                     {reservation.date} at {reservation.time}
                   </span>
                 </div>

@@ -20,10 +20,16 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import FormHelperText from "@mui/material/FormHelperText";
 
 export default ({ reservation, currentUser, login, history }) => {
   const [open, setOpen] = useState(false);
   const [myReservation, setMyReservation] = useState(reservation);
+  const [errors, setErrors] = useState({
+    partySize: false,
+    date: false,
+    time: false,
+  });
 
   const handleTimeChange = (event) => {
     myReservation.time = event.target.value;
@@ -37,6 +43,9 @@ export default ({ reservation, currentUser, login, history }) => {
   };
 
   const handleDateChange = (newDate) => {
+    if (!newDate) {
+      return;
+    }
     // console.log(newDate); //Wed Apr 20 2022 15:45:45 GMT-0400 (Eastern Daylight Time)
     myReservation.date = new Date(Date.parse(newDate)).toLocaleString("en-US", {
       timeZone: "UTC",
@@ -71,6 +80,18 @@ export default ({ reservation, currentUser, login, history }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newErrors = {
+      partySize: !myReservation.partySize,
+      date: !myReservation.date,
+      time: !myReservation.time,
+    };
+
+    if (newErrors.partySize || newErrors.date || newErrors.time) {
+      // console.log(newErrors);
+      setErrors(newErrors);
+      return;
+    }
+
     if (!currentUser) {
       handleAlertOpen();
       return;
@@ -78,7 +99,6 @@ export default ({ reservation, currentUser, login, history }) => {
 
     ReservationAPIUtil.createReservation({
       restaurant_id: myReservation.restaurant_id,
-      // date: "2022-4-20",
       date: myReservation.date,
       time: myReservation.time,
       party_size: myReservation.partySize,
@@ -127,7 +147,6 @@ export default ({ reservation, currentUser, login, history }) => {
             id="party-select"
             value={myReservation.partySize}
             label="Party Size"
-            //   onChange={this.handleInput("partySize")}
             onChange={handlePartyChange}
           >
             <MenuItem value={1}>1</MenuItem>
@@ -139,6 +158,9 @@ export default ({ reservation, currentUser, login, history }) => {
             <MenuItem value={7}>7</MenuItem>
             <MenuItem value={8}>8</MenuItem>
           </Select>
+          {errors.partySize && (
+            <FormHelperText error={true}>Party size is required</FormHelperText>
+          )}
         </FormControl>
       </div>
       <div className="date-time">
@@ -154,7 +176,11 @@ export default ({ reservation, currentUser, login, history }) => {
                   handleDateChange(newDate);
                 }}
                 renderInput={(params) => (
-                  <TextField variant="standard" {...params} />
+                  <TextField
+                    variant="standard"
+                    helperText={errors.date ? "Date is required" : undefined}
+                    {...params}
+                  />
                 )}
                 components={{ OpenPickerIcon: ArrowDropDownIcon }}
               />
@@ -181,6 +207,9 @@ export default ({ reservation, currentUser, login, history }) => {
               <MenuItem value={"21:30:00"}>9:30 PM</MenuItem>
               <MenuItem value={"22:00:00"}>10:00 PM</MenuItem>
             </Select>
+            {errors.time && (
+              <FormHelperText error={true}>Time is required</FormHelperText>
+            )}
           </FormControl>
         </div>
       </div>

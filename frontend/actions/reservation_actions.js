@@ -1,21 +1,24 @@
 import * as ReservationAPIUtil from '../utils/reservation_api_util';
-
 export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION";
-// export const RECEIVE_RESERVATIONS = "RECEIVE_RESERVATIONS";
 export const REMOVE_RESERVATION = "REMOVE_RESERVATION";
+// export const RECEIVE_RESERVATION_ERRORS = "RECEIVE_RESERVATION_ERRORS";
+// export const CLEAR_RESERVATION_ERRORS = 'CLEAR_RESERVATION_ERRORS';
+
 
 const receiveReservation = reservation => ({
     type: RECEIVE_RESERVATION,
     reservation
 });
-// const receiveReservations = reservations => ({
-//     type: RECEIVE_RESERVATIONS,
-//     reservations
-// });
+
 const removeReservation = reservationId => ({
     type: REMOVE_RESERVATION,
     reservationId
 });
+
+// const receiveReservationErrors = errors => ({
+//     type: RECEIVE_RESERVATION_ERRORS,
+//     errors
+// });
 
 
 export const requestReservation = (reservationId) => dispatch => {
@@ -25,15 +28,12 @@ export const requestReservation = (reservationId) => dispatch => {
         });
 }
 
-// export const requestReservations = () => dispatch => {
-//     return ReservationAPIUtil.fetchReservations()
-//         .then(reservations => dispatch(receiveReservations(reservations)));
-// }
-
 export const createReservation = (reservation) => dispatch => {
-    return ReservationAPIUtil.createReservation(reservation)
-        .then(reservation => dispatch(receiveReservation(reservation))
-        );
+    return (
+        ReservationAPIUtil.createReservation(reservation)
+            .then(
+                reservation => dispatch(receiveReservation(reservation))
+            ));
 }
 
 export const deleteReservation = (reservationId) => dispatch => {

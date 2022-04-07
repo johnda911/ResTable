@@ -9,13 +9,11 @@ class Api::ReservationsController < ApplicationController
     
     def create
         @reservation = Reservation.new(reservation_params)
-        # puts (@reservation.date)
-        # puts (@reservation.time)
-        # puts("===================")
         if @reservation.save
             render "api/reservations/show"
         else
-            render json: ["Please signin to make a reservation"], status: 422
+            render json: ["All fields are required"], status: 422
+            # render json: @reservation.errors.full_messages, status: 422
         end
     end
 

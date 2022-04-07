@@ -70,7 +70,7 @@ input {
       border: 0.0825rem solid lightgray;
       margin-bottom: 10px;
       width: 95%;
-      height: 46px;
+      height: 40px;
       border-radius: 0.3875rem;
       font-size: 18px;
       padding-left: 15px;
@@ -84,7 +84,7 @@ input {
       font-size: 20px;
       font-weight: 400;
       width: 100%;
-      height: 52px;
+      height: 41px;
       margin-top: 10px;
       padding: 0px;
       background-color: var(--red);
@@ -102,7 +102,7 @@ input {
       font-size: 20px;
       font-weight: 400;
       width: 100%;
-      height: 52px;
+      height: 41px;
       padding: 0px;
       border-radius: 0.3875rem;
       border: 0.0825rem solid lightgray;
@@ -119,6 +119,7 @@ input {
       font-weight: 400;
       text-align: center;
       color: var(--red);
+      // background-color: orange;
       ul {
         margin-top: 10px;
         font-size: 16px;
