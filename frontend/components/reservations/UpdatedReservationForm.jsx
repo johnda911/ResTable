@@ -178,7 +178,7 @@ export default ({
       </div>
       {/* </div> */}
       <div className="modify-table-btn" onClick={handleSubmit}>
-        Modify the reservation
+        Change reservation
       </div>
     </div>
   );
