@@ -54,6 +54,16 @@ const handleSubmit = (e) => {
     });
 ```
 
+```javascript
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  ```
+
 ### Future Directions
 * Diners can make reviews on their past comfirmed reservations.
 * Users can see recommended restaurants based on their current location.
