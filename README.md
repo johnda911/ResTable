@@ -34,7 +34,7 @@ The searchbar at the top of homepage allows users to search restaurants based on
 Users can make reservations by filling out the reservation form using dropdown menus. If the current user is not signed in, there would be a popover requesting them to sign in or use demo user mode instead. Upon click on "Reserve a Table", it redirects users to the confirmation page where they can modify or view the reservation they just made. They can also see the whole of list upcoming reservations by going to the profile page. 
 
 
-By making an async call as shown below, the app would hold on the the confirmation page until after it makes a post ajax request and returns a new reservatio object as a promise.
+By making an async call as shown below, the app would hold on the the confirmation page until after it makes a post ajax request and returns a new reservation object as a promise.
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/94198079/157999283-82c4de26-dedf-4b5d-b120-b115fb42420f.gif)
 
