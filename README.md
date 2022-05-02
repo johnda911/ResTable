@@ -53,6 +53,7 @@ const handleSubmit = (e) => {
       history.push(`/reservation/${reservation.id}/confirmation`);
     });
 ```
+There is another technolocal challenge I faced was that I need to implement a UI library component that I need to reuse a few times throughout my project.There's, however, a "flaw" that exists from the traditional lifecycle method as it doesn't offer a way to "attach" a dropdown behavior I want to use later on to a golbal store. ATo address that, I have implemented React Hooks funstion that allow me to split one component into smaller functions below solely based on what exact pieces are needed (such as just fetching a specific profile data from the client), rather than forcing a split based on lifecycle methods.
 
 ```javascript
   const [anchorEl, setAnchorEl] = React.useState(null);
